@@ -1,0 +1,3 @@
+# Deploy only the static site. Canvas export files at the repo root are not published.
+[build]
+  publish = "momoa-site"

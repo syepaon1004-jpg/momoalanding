@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>모모아 랜딩페이지</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'Pretendard Variable';font-style:normal;font-weight:45 920;font-display:swap;src:url('./assets/086365e4af317e66aba39d2e0bbf3694.woff2') format('woff2-variations'),url('./assets/086365e4af317e66aba39d2e0bbf3694.woff2') format('woff2');}
+body{margin:0;font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;color:#17191E;background:#121418;-webkit-font-smoothing:antialiased;word-break:keep-all;}
+a{color:#2B5CE0}a:hover{color:#2350C8}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+button,input,textarea{font-family:inherit}
+sc-for,sc-if{display:contents}
+:focus-visible{outline:3px solid #9DB5F5;outline-offset:3px}
+summary{list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open] .mm-sumchev{transform:rotate(180deg)}
+.mm-btn{transition:filter .15s ease,transform .15s ease}
+.mm-btn:hover{filter:brightness(1.07)}
+.mm-btn:active{transform:translateY(1px)}
+.mm-in::placeholder{color:#6E7480}
+.mm-in:focus{outline:none;border-color:#2B5CE0 !important;box-shadow:0 0 0 3px rgba(43,92,224,.18)}
+@keyframes mmPop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.1);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes mmFade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.mm-nav{display:flex}
+.mm-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:56px}
+.mm-flow5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:24px}
+.mm-flow4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:20px}
+.mm-flow6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:16px}
+.mm-step{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.mm-arrow-h{display:block}
+.mm-arrow-v{display:none;justify-content:center;padding:10px 0}
+.mm-join-h{display:flex;align-items:center;justify-content:center;flex:0 0 32px}
+.mm-join-v{display:none;justify-content:center;padding:2px 0}
+.mm-sol{display:flex;align-items:stretch;gap:16px}
+.mm-owner{flex:0 0 232px}
+.mm-box{flex:1 1 auto;min-width:0}
+.mm-phases{display:flex;align-items:stretch;gap:12px}
+.mm-phase{flex:1 1 0;min-width:0}
+.mm-benefits{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:56px;align-items:start}
+.mm-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.mm-apply{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.mm-c6{width:84px;height:84px;font-size:28px}
+.mm-t6{display:flex;flex-direction:column;gap:6px;align-items:center}
+.mm-ownerchip{margin-top:0}
+@media (max-width:1100px){
+.mm-sol{flex-direction:column}
+.mm-owner{flex:none;width:100%}
+.mm-sol > .mm-join-h{display:none}
+.mm-sol > .mm-join-v{display:flex}
+}
+@media (max-width:980px){
+.mm-hero{grid-template-columns:minmax(0,1fr);gap:44px}
+.mm-benefits{grid-template-columns:minmax(0,1fr);gap:28px}
+.mm-apply{grid-template-columns:minmax(0,1fr);gap:36px}
+.mm-flow5,.mm-flow6{grid-template-columns:minmax(0,1fr)}
+.mm-flow5 .mm-arrow-h,.mm-flow6 .mm-arrow-h{display:none}
+.mm-flow5 .mm-arrow-v{display:flex;justify-content:flex-start;padding:4px 0 4px 16px}
+.mm-flow5 .mm-arrow-v svg{width:20px;height:18px}
+.mm-flow5 .mm-step{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:14px !important;row-gap:8px !important;align-items:center;text-align:left}
+.mm-flow5 .mm-circ{grid-row:1 / span 2;align-self:start;width:52px !important;height:52px !important}
+.mm-flow5 .mm-circ svg{display:none}
+.mm-flow5 .mm-circ span{font-size:15px !important}
+.mm-flow5 .mm-desc{min-height:0 !important;font-size:14.5px !important}
+.mm-flow5 .mm-desc br{display:none}
+.mm-flow5 .mm-list{flex-direction:row !important;flex-wrap:wrap;gap:6px !important;padding:0 !important;background:transparent !important;max-width:none !important}
+.mm-flow5 .mm-li{padding:5px 9px;border-radius:8px;background:#F4F4F2;font-size:12.5px !important}
+.mm-flow5 .mm-chk{display:none}
+.mm-flow6{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+.mm-flow6 .mm-arrow-v{display:none}
+.mm-flow6 .mm-step{flex-direction:row;align-items:flex-start;text-align:left;gap:10px !important}
+.mm-c6{width:36px;height:36px;font-size:16px}
+.mm-t6{align-items:flex-start;gap:2px;padding-top:5px}
+.mm-t6 strong{font-size:16px !important}
+.mm-t6 span{font-size:13px !important}
+.mm-bracket{display:none}
+.mm-ownerchip{margin-top:20px}
+}
+@media (max-width:860px){
+.mm-nav{display:none}
+.mm-flow4{grid-template-columns:minmax(0,1fr)}
+.mm-flow4 .mm-arrow-h{display:none}
+.mm-flow4 .mm-arrow-v{display:flex;justify-content:flex-start;padding:4px 0 4px 14px}
+.mm-flow4 .mm-arrow-v svg{width:20px;height:18px}
+.mm-flow4 .mm-step{display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:14px !important;row-gap:8px !important;align-items:center;text-align:left}
+.mm-flow4 .mm-circ{grid-row:1 / span 2;align-self:start;width:48px !important;height:48px !important}
+.mm-flow4 .mm-circ svg{display:none}
+.mm-flow4 .mm-circ span{font-size:14px !important}
+.mm-flow4 .mm-desc{min-height:0 !important;font-size:14.5px !important}
+.mm-flow4 .mm-desc br{display:none}
+.mm-flow4 .mm-list{flex-direction:row !important;flex-wrap:wrap;gap:6px !important;padding:0 !important;background:transparent !important;max-width:none !important}
+.mm-flow4 .mm-li{padding:5px 9px;border-radius:8px;background:rgba(255,255,255,.10);font-size:12.5px !important}
+.mm-box{padding:24px 18px 26px !important;border-radius:24px !important}
+.mm-boxhead{margin-bottom:20px !important}
+.mm-owner{display:grid !important;grid-template-columns:64px minmax(0,1fr);column-gap:16px !important;row-gap:10px !important;align-items:center;text-align:left !important;padding:20px !important}
+.mm-owner .mm-tag{grid-column:1 / -1;justify-self:start}
+.mm-owner .mm-circ{grid-column:1;grid-row:2 / span 2;width:64px !important;height:64px !important}
+.mm-owner .mm-circ svg{display:none}
+.mm-owner .mm-circ span{font-size:16px !important}
+.mm-owner .mm-desc{grid-column:2;font-size:14.5px !important}
+.mm-owner .mm-desc br{display:none}
+.mm-owner .mm-cta{grid-column:2;justify-self:start;height:40px !important}
+.mm-phases{flex-direction:column;gap:8px}
+.mm-phase{flex:none;flex-direction:row !important;flex-wrap:wrap;align-items:baseline;column-gap:10px !important;row-gap:2px !important;padding:16px 18px !important}
+.mm-phase > span:last-child{flex-basis:100%}
+.mm-phases > .mm-join-h{display:none}
+.mm-phases > .mm-join-v{display:flex}
+.mm-phases .mm-join-v svg{width:16px;height:16px}
+}
+@media (max-width:640px){
+.mm-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mm-card{padding:18px !important;min-height:0 !important;gap:6px !important;border-radius:20px !important}
+.mm-card .mm-ic{width:40px !important;height:40px !important;border-radius:12px !important}
+.mm-card .mm-ic svg{width:22px;height:22px}
+.mm-card h3{font-size:17px !important;margin-top:8px !important}
+.mm-card p{font-size:13.5px !important;line-height:1.55 !important}
+.mm-card p br{display:none}
+.mm-card .mm-extra{display:none !important}
+.mm-bandic{display:none}
+.mm-feetbl{min-width:0 !important;font-size:13.5px !important}
+.mm-feetbl th,.mm-feetbl td,.mm-feetbl caption{padding:10px !important}
+[id^="faq-a"]{padding-left:4px !important}
+}
+@media (prefers-reduced-motion:reduce){
+*{animation:none !important;transition:none !important}
+html{scroll-behavior:auto}
+}
+</style>
+</helmet>
+<div id="top" style="min-height:100%;background:#121418;color:#17191E;font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif">
+
+<header style="position:sticky;top:0;z-index:30;background:#FFFFFF;border-bottom:1px solid #ECECE8">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<a href="#top" aria-label="모모아 처음으로" style="display:flex;align-items:center;min-height:44px"><img src="./assets/80aaefe1539a768ee575814157064240.svg" alt="momoa." style="display:block;height:22px;width:auto"></a>
+<nav class="mm-nav" aria-label="주요 메뉴" style="align-items:center;gap:32px">
+<a href="#how" style="font-size:15px;font-weight:600;color:#3A3F48;text-decoration:none">서비스 소개</a>
+<a href="#process" style="font-size:15px;font-weight:600;color:#3A3F48;text-decoration:none">진행 과정</a>
+<a href="#faq" style="font-size:15px;font-weight:600;color:#3A3F48;text-decoration:none">자주 묻는 질문</a>
+</nav>
+<a class="mm-btn" href="#apply" style="display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:12px;background:#2B5CE0;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none">상담 신청</a>
+</div>
+</header>
+
+<section aria-label="소개" style="position:relative;overflow:hidden;background:#2B5CE0;padding:clamp(40px,7vw,88px) 0 clamp(56px,8vw,104px)">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<div class="mm-hero">
+<div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;color:#FFFFFF">
+<span style="display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.10);font-size:14px;font-weight:600;letter-spacing:-0.01em;color:#FFFFFF">외식 사장님을 위한 유휴 공간 연결·관리 서비스</span>
+<h1 style="margin:0;font-size:clamp(32px,4.4vw,60px);line-height:1.24;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF"><span style="display:block">매장의 남는 시간을</span><span style="display:block">독서모임 장소로!</span></h1>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px">
+<a class="mm-btn" href="#apply" style="display:inline-flex;align-items:center;gap:8px;height:56px;padding:0 24px;border-radius:14px;background:#FFFFFF;color:#2B5CE0;font-size:17px;font-weight:800;text-decoration:none">상담 신청하기<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+<a class="mm-btn" href="#process" style="display:inline-flex;align-items:center;height:56px;padding:0 22px;border-radius:14px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-size:17px;font-weight:700;text-decoration:none">진행 과정 보기</a>
+</div>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#E6EDFF">지금 결정하지 않으셔도 괜찮습니다. 편하게 문의해 주세요.</p>
+</div>
+
+<div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px">
+<div aria-hidden="true" style="position:absolute;left:50%;top:46%;width:min(560px,128%);aspect-ratio:1 / 1;transform:translate(-50%,-50%);border-radius:50%;background:#3866E5"></div>
+<div style="position:relative;width:100%;max-width:348px;padding:10px;border-radius:54px;background:#0E1014;box-shadow:0 40px 80px -24px rgba(6,18,58,.55)">
+<div style="border-radius:44px;overflow:hidden;background:#FFFFFF">
+<div style="padding:24px 18px 10px">
+<div style="display:flex;align-items:center;justify-content:space-between">
+<div style="display:flex;align-items:center;gap:4px;font-size:21px;font-weight:800;letter-spacing:-0.02em;color:#17191E">11월<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div>
+<div style="display:flex;align-items:center;gap:10px">
+<span style="font-size:12px;font-weight:600;color:#3A3F48;padding:6px 12px;border:1px solid #E1E3E8;border-radius:999px">오늘</span>
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A909B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9"></path><path d="M17 7h3"></path><circle cx="15" cy="7" r="2"></circle><path d="M4 17h3"></path><path d="M11 17h9"></path><circle cx="9" cy="17" r="2"></circle></svg>
+</div>
+</div>
+<div style="display:flex;align-items:baseline;gap:8px;margin-top:16px;padding-bottom:14px;border-bottom:1px solid #EEF0F3">
+<span style="font-size:13px;font-weight:700;color:#2B5CE0">수익</span>
+<span style="font-size:25px;font-weight:800;letter-spacing:-0.02em;color:#17191E;font-variant-numeric:tabular-nums">750,000</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));align-items:start;margin-top:12px;text-align:center;font-size:12px;font-weight:600;color:#5F6672">
+<span>일</span>
+<span>월</span>
+<span style="display:flex;flex-direction:column;align-items:center;gap:3px">화<span style="font-size:9.5px;font-weight:700;line-height:1;color:#2B5CE0;background:#EAF0FD;padding:3px 5px;border-radius:6px">휴무</span></span>
+<span>수</span>
+<span>목</span>
+<span>금</span>
+<span>토</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:2px;margin-top:6px">
+<sc-for list="{{days}}" as="day" hint-placeholder-count="35">
+<div style="{{day.cell}}"><span style="{{day.numStyle}}">{{day.num}}<sc-if value="{{day.moon}}" hint-placeholder-val="{{false}}"><span style="position:absolute;top:-5px;right:-6px;width:15px;height:15px;border-radius:50%;background:#FFFFFF;box-shadow:0 0 0 1px #DDE2EE;display:flex;align-items:center;justify-content:center"><svg aria-hidden="true" width="9" height="9" viewBox="0 0 24 24" fill="#16245C" stroke="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span></sc-if></span><span style="{{day.amtStyle}}">{{day.amt}}</span></div>
+</sc-for>
+</div>
+</div>
+<div style="background:#F6F6F4;padding:16px 16px 22px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font-size:13.5px;font-weight:800;color:#17191E">10일 (화)</span>
+<div style="display:flex;align-items:center;gap:11px;background:#FFFFFF;border-radius:16px;padding:12px">
+<span style="width:40px;height:40px;border-radius:50%;background:#2B5CE0;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"></path></svg></span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+<span style="font-size:11px;font-weight:500;color:#5F6672">정기휴무 · 14:00–18:00</span>
+<span style="font-size:14.5px;font-weight:800;color:#17191E">독서모임 대관</span>
+</span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none">
+<span style="font-size:11px;font-weight:500;color:#5F6672">공간대여</span>
+<span style="display:flex;align-items:center;gap:5px;font-size:15px;font-weight:800;color:#17191E;font-variant-numeric:tabular-nums"><span style="width:16px;height:16px;border-radius:50%;background:#2B5CE0;display:flex;align-items:center;justify-content:center"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>93,750</span>
+</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font-size:13.5px;font-weight:800;color:#17191E">12일 (목)</span>
+<div style="display:flex;align-items:center;gap:11px;background:#FFFFFF;border-radius:16px;padding:12px">
+<span style="width:40px;height:40px;border-radius:50%;background:#16245C;display:flex;align-items:center;justify-content:center;flex:none"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+<span style="font-size:11px;font-weight:500;color:#5F6672">영업 종료 후 · 19:00–23:00</span>
+<span style="font-size:14.5px;font-weight:800;color:#17191E">독서모임 대관</span>
+</span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none">
+<span style="font-size:11px;font-weight:500;color:#5F6672">공간대여</span>
+<span style="display:flex;align-items:center;gap:5px;font-size:15px;font-weight:800;color:#17191E;font-variant-numeric:tabular-nums"><span style="width:16px;height:16px;border-radius:50%;background:#2B5CE0;display:flex;align-items:center;justify-content:center"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>93,750</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p style="position:relative;margin:0;font-size:13px;line-height:1.5;font-weight:500;color:#FFFFFF;text-align:center">예시 화면 · 모임 1회(약 4시간) 10만 원, 초기 매장 기준</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="problem" style="scroll-margin-top:72px;background:#FFFFFF;padding:clamp(60px,10vw,128px) 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<h2 style="margin:0;font-size:clamp(26px,3.6vw,46px);line-height:1.32;font-weight:800;letter-spacing:-0.03em;color:#17191E"><span style="display:block">우리 가게 공간대여 해보려고 했는데,</span><span style="display:block;color:#2B5CE0">신경 쓸 게 너무 많지 않나요?</span></h2>
+<p style="margin:20px 0 0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#4A4F5A"><span style="display:block">직접 공간 대여를 하려면 조사·준비·등록·운영까지 모두 사장님 몫입니다.</span><span style="display:block">모모아는 수요를 먼저 확보하고, 등록부터 관리까지 전담합니다.</span></p>
+
+<div class="mm-flow5" style="margin-top:clamp(36px,6vw,72px)">
+<div class="mm-step" style="gap:18px">
+<div class="mm-circ" style="width:96px;height:96px;border-radius:50%;border:2px solid #2B5CE0;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+<span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">조사</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A;min-height:47px">내 공간에 어떤 수요가 <br>있을지 사례 찾기</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px 16px;width:100%;max-width:320px;background:#F4F4F2;border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>비슷한 공간 사례 조사</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>시간대·가격 알아보기</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:47px;left:calc(50% + 58px);width:calc(100% - 92px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:18px">
+<div class="mm-circ" style="width:96px;height:96px;border-radius:50%;border:2px solid #2B5CE0;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="4.5" width="13" height="16" rx="2"></rect><path d="M9 4.5h6v3H9z"></path><path d="M9 12h6M9 15.5h4"></path></svg>
+<span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">준비</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A;min-height:47px">내 공간의 컨셉 정하기</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px 16px;width:100%;max-width:320px;background:#F4F4F2;border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>이용 규칙 정하기</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>필요한 장비 갖추기</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:47px;left:calc(50% + 58px);width:calc(100% - 92px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:18px">
+<div class="mm-circ" style="width:96px;height:96px;border-radius:50%;border:2px solid #2B5CE0;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5h3.2L9 6h6l1.8 2.5H20v10.5H4z"></path><circle cx="12" cy="13.5" r="3.2"></circle></svg>
+<span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">등록</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A;min-height:47px">사진 촬영, 소개글 작성, <br>가격 설정</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px 16px;width:100%;max-width:320px;background:#F4F4F2;border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>대관 플랫폼 가입</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>예약 가능 시간 설정</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:47px;left:calc(50% + 58px);width:calc(100% - 92px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:18px">
+<div class="mm-circ" style="width:96px;height:96px;border-radius:50%;border:2px solid #2B5CE0;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4.5v-13L7 10z"></path><path d="M17.5 9a4 4 0 0 1 0 6"></path></svg>
+<span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">홍보</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A;min-height:47px">공간을 찾는 모임에 <br>알리기</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px 16px;width:100%;max-width:320px;background:#F4F4F2;border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>SNS·커뮤니티 홍보</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>후기 관리</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:47px;left:calc(50% + 58px);width:calc(100% - 92px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:18px">
+<div class="mm-circ" style="width:96px;height:96px;border-radius:50%;border:2px solid #2B5CE0;background:#2B5CE0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"></circle><path d="M10.8 12.2L20 3M16.5 6.5l2.5 2.5M14 9l2 2"></path></svg>
+<span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#FFFFFF">운영</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A;min-height:47px">공간 관리와 문의 응대</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px 16px;width:100%;max-width:320px;background:#F4F4F2;border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>예약·문의 응대</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>대관 전후 정리·점검</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:#3A3F48"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;border:1.5px solid #B4BAC6;background:#FFFFFF;flex:none"></span>정산 관리</li>
+</ul>
+</div>
+</div>
+
+<div class="mm-bracket" aria-hidden="true" style="margin-top:36px">
+<div style="height:18px;border:2px solid #D3D8E4;border-top:0;border-radius:0 0 16px 16px"></div>
+<div style="width:2px;height:18px;margin:0 auto;background:#D3D8E4"></div>
+</div>
+<div class="mm-ownerchip" style="display:flex;justify-content:center">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:#17191E;color:#FFFFFF;font-size:15px;font-weight:700"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20.5c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"></path></svg>사장님</span>
+</div>
+</div>
+</section>
+
+<section id="how" style="scroll-margin-top:72px;background:#F4F4F2;padding:clamp(60px,10vw,128px) 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<h2 style="margin:0;font-size:clamp(26px,3.6vw,46px);line-height:1.32;font-weight:800;letter-spacing:-0.03em;color:#17191E"><span style="display:block">사장님은 등록만,</span><span style="display:block;color:#2B5CE0">그 이후는 모모아가 알아서 합니다.</span></h2>
+<p style="margin:20px 0 0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#4A4F5A">조사부터 운영까지, 등록 이후의 과정은 모두 모모아가 맡습니다.</p>
+
+<div class="mm-sol" style="margin-top:clamp(32px,5vw,64px)">
+<div class="mm-owner" style="background:#FFFFFF;border:1px solid #E4E4E0;border-radius:28px;padding:30px 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center">
+<span class="mm-tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#17191E;color:#FFFFFF;font-size:14px;font-weight:700"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20.5c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"></path></svg>사장님</span>
+<div class="mm-circ" style="width:96px;height:96px;border-radius:50%;border:2px solid #2B5CE0;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4.5L19 9.5 14.5 5 4 15.5z"></path><path d="M12.5 7l4.5 4.5"></path></svg>
+<span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">등록</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A">업체명, 전화번호, <br>운영시간만 남겨주세요</p>
+<a class="mm-btn mm-cta" href="#apply" style="display:inline-flex;align-items:center;gap:6px;height:46px;padding:0 18px;border-radius:12px;background:#EAF0FD;color:#2B5CE0;font-size:15px;font-weight:800;text-decoration:none">등록하기<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="mm-join-h" aria-hidden="true"><svg width="32" height="20" viewBox="0 0 32 20" fill="none" stroke="#2B5CE0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h26"></path><path d="M21 3l7 7-7 7"></path></svg></div>
+<div class="mm-join-v" aria-hidden="true"><svg width="20" height="28" viewBox="0 0 20 28" fill="none" stroke="#2B5CE0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v23"></path><path d="M3 18l7 7 7-7"></path></svg></div>
+
+<div class="mm-box" style="background:#2B5CE0;border-radius:32px;padding:30px clamp(20px,3vw,36px) 36px;color:#FFFFFF">
+<div class="mm-boxhead" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:32px">
+<img src="./assets/bb0c3042ef65b3728faadcd3fb4b5a12.svg" alt="momoa." style="display:block;height:26px;width:auto">
+<span style="font-size:14px;font-weight:700;color:#FFFFFF;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.10)">등록 이후 전 과정</span>
+</div>
+<div class="mm-flow4">
+<div class="mm-step" style="gap:16px">
+<div class="mm-circ" style="width:84px;height:84px;border-radius:50%;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+<span style="font-size:17px;font-weight:800;letter-spacing:-0.02em;color:#17191E">조사</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.5;font-weight:700;color:#FFFFFF;min-height:45px">매장에 맞는 <br>모임 수요 확인</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px;width:100%;max-width:320px;background:rgba(255,255,255,.10);border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>지역별 모임 수요 확인</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>매장에 맞는 모임 찾기</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 52px);width:calc(100% - 84px);height:2px;background:#FFFFFF"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-circ" style="width:84px;height:84px;border-radius:50%;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="4.5" width="13" height="16" rx="2"></rect><path d="M9 4.5h6v3H9z"></path><path d="M9 12h6M9 15.5h4"></path></svg>
+<span style="font-size:17px;font-weight:800;letter-spacing:-0.02em;color:#17191E">준비</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.5;font-weight:700;color:#FFFFFF;min-height:45px">방문 실사와 <br>장비 준비</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px;width:100%;max-width:320px;background:rgba(255,255,255,.10);border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>좌석·장비·출입 방식 확인</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>리스트용 사진 촬영</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>모임 장비 준비</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 52px);width:calc(100% - 84px);height:2px;background:#FFFFFF"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-circ" style="width:84px;height:84px;border-radius:50%;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4.5v-13L7 10z"></path><path d="M17.5 9a4 4 0 0 1 0 6"></path></svg>
+<span style="font-size:17px;font-weight:800;letter-spacing:-0.02em;color:#17191E">홍보</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.5;font-weight:700;color:#FFFFFF;min-height:45px">정기 모임과 <br>연결</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px;width:100%;max-width:320px;background:rgba(255,255,255,.10);border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>리스트 등재</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>모임 일정 배정</li>
+</ul>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 52px);width:calc(100% - 84px);height:2px;background:#FFFFFF"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="30" viewBox="0 0 20 30" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v25"></path><path d="M4 21l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-circ" style="width:84px;height:84px;border-radius:50%;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"></circle><path d="M10.8 12.2L20 3M16.5 6.5l2.5 2.5M14 9l2 2"></path></svg>
+<span style="font-size:17px;font-weight:800;letter-spacing:-0.02em;color:#17191E">운영</span>
+</div>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.5;font-weight:700;color:#FFFFFF;min-height:45px">대관 관리와 <br>정산</p>
+<ul class="mm-list" style="list-style:none;margin:0;padding:14px;width:100%;max-width:320px;background:rgba(255,255,255,.10);border-radius:16px;display:flex;flex-direction:column;gap:10px;text-align:left">
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>대관 전후 점검</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>장비 회수</li>
+<li class="mm-li" style="display:flex;align-items:center;gap:9px;font-size:13.5px;line-height:1.4;font-weight:500;color:#FFFFFF"><span class="mm-chk" aria-hidden="true" style="width:16px;height:16px;border-radius:5px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>월 1회 정산</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="기업 제휴 안내" style="background:#2B5CE0;padding:clamp(24px,4vw,44px) 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:center;gap:18px;text-align:center">
+<svg class="mm-bandic" aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M3 5.5h5.5A3.5 3.5 0 0 1 12 9v10.5a2.5 2.5 0 0 0-2.5-2.5H3z"></path><path d="M21 5.5h-5.5A3.5 3.5 0 0 0 12 9v10.5a2.5 2.5 0 0 1 2.5-2.5H21z"></path></svg>
+<p style="margin:0;font-size:clamp(18px,2.1vw,27px);line-height:1.45;font-weight:800;letter-spacing:-0.025em;color:#FFFFFF">모모아는 기업제휴를 통해서 정기적으로 운영되는 모임을 연결시켜요!</p>
+<svg class="mm-bandic" aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M3 5.5h5.5A3.5 3.5 0 0 1 12 9v10.5a2.5 2.5 0 0 0-2.5-2.5H3z"></path><path d="M21 5.5h-5.5A3.5 3.5 0 0 0 12 9v10.5a2.5 2.5 0 0 1 2.5-2.5H21z"></path></svg>
+</div>
+</section>
+
+<section id="benefits" style="scroll-margin-top:72px;background:#FFFFFF;padding:clamp(60px,10vw,128px) 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<div class="mm-benefits">
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="margin:0;font-size:clamp(28px,3.8vw,50px);line-height:1.25;font-weight:800;letter-spacing:-0.035em;color:#17191E"><span style="display:block">모모아와</span><span style="display:block">함께하면?</span></h2>
+<p style="margin:0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#4A4F5A"><span style="display:block">공간은 그대로,</span><span style="display:block">관리는 모모아가 맡습니다.</span></p>
+</div>
+<div class="mm-cards">
+<article class="mm-card" style="background:#2B5CE0;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;min-height:280px;color:#FFFFFF">
+<span class="mm-ic" aria-hidden="true" style="width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="M3 10h18M7 15h3"></path></svg></span>
+<h3 style="margin:14px 0 0;font-size:24px;line-height:1.3;font-weight:800;letter-spacing:-0.02em;color:#FFFFFF">안정적 수익</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#E6EDFF">일회성이 아닌 <br>4개월 단위 계약</p>
+<div class="mm-extra" aria-hidden="true" style="margin-top:auto;padding-top:16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px">
+<span style="height:38px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">1개월</span>
+<span style="height:38px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">2개월</span>
+<span style="height:38px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">3개월</span>
+<span style="height:38px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">4개월</span>
+</div>
+</article>
+<article class="mm-card" style="background:#F4F4F2;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;min-height:280px">
+<span class="mm-ic" aria-hidden="true" style="width:52px;height:52px;border-radius:16px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v6c0 4.4-3.2 8.1-7.5 9-4.3-.9-7.5-4.6-7.5-9V6z"></path><path d="M8.8 12.2l2.2 2.2 4.2-4.4"></path></svg></span>
+<h3 style="margin:14px 0 0;font-size:24px;line-height:1.3;font-weight:800;letter-spacing:-0.02em;color:#17191E">검증된 이용자</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A4F5A">아무에게나 빌려주지 않습니다. <br>제휴 기업·기관의 모임에만 제공</p>
+</article>
+<article class="mm-card" style="background:#F4F4F2;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;min-height:280px">
+<span class="mm-ic" aria-hidden="true" style="width:52px;height:52px;border-radius:16px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="4.5" width="13" height="16" rx="2"></rect><path d="M9 4.5h6v3H9z"></path><path d="M9.3 13.6l1.9 1.9 3.6-3.8"></path></svg></span>
+<h3 style="margin:14px 0 0;font-size:24px;line-height:1.3;font-weight:800;letter-spacing:-0.02em;color:#17191E">관리·보안</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A4F5A">대관 전후 모모아가 <br>직접 방문해 점검</p>
+<div class="mm-extra" style="margin-top:auto;padding-top:16px;display:flex;flex-wrap:wrap;gap:8px">
+<span style="padding:8px 12px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:700">대관 전 오픈 점검</span>
+<span style="padding:8px 12px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:700">대관 후 뒷정리 확인</span>
+</div>
+</article>
+<article class="mm-card" style="background:#F4F4F2;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;min-height:280px">
+<span class="mm-ic" aria-hidden="true" style="width:52px;height:52px;border-radius:16px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"></path><path d="M4 7.5l8 4.5 8-4.5M12 12v9"></path></svg></span>
+<h3 style="margin:14px 0 0;font-size:24px;line-height:1.3;font-weight:800;letter-spacing:-0.02em;color:#17191E">장비 제공</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A4F5A">모임에 필요한 장비는 <br>모모아가 준비하고 회수</p>
+<div class="mm-extra" style="margin-top:auto;padding-top:16px;display:flex">
+<span style="padding:8px 12px;border-radius:10px;background:#FFFFFF;color:#2B5CE0;font-size:13px;font-weight:700">사장님 부담 없음</span>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section id="process" style="scroll-margin-top:72px;background:#F4F4F2;padding:clamp(60px,10vw,128px) 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<h2 style="margin:0;font-size:clamp(26px,3.6vw,46px);line-height:1.32;font-weight:800;letter-spacing:-0.03em;color:#17191E">이렇게 진행됩니다</h2>
+<p style="margin:18px 0 0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#4A4F5A">상담과 공간 준비 1개월, 리스트 등재 1개월을 거쳐 4개월 단위 구독으로 운영됩니다.</p>
+
+<div class="mm-flow6" style="margin-top:clamp(32px,5vw,64px)">
+<div class="mm-step" style="gap:16px">
+<div class="mm-c6" style="border-radius:50%;background:#2B5CE0;border:2px solid #2B5CE0;color:#FFFFFF;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">1</div>
+<div class="mm-t6"><strong style="font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#17191E">상담</strong><span style="font-size:14px;line-height:1.55;color:#4A4F5A">남겨주신 연락처로 상담</span></div>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 50px);width:calc(100% - 84px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 20 26" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v21"></path><path d="M4 17l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-c6" style="border-radius:50%;background:#FFFFFF;border:2px solid #2B5CE0;color:#2B5CE0;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">2</div>
+<div class="mm-t6"><strong style="font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#17191E">방문 실사</strong><span style="font-size:14px;line-height:1.55;color:#4A4F5A">좌석·장비·출입 방식 확인<br>사진 촬영</span></div>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 50px);width:calc(100% - 84px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 20 26" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v21"></path><path d="M4 17l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-c6" style="border-radius:50%;background:#FFFFFF;border:2px solid #2B5CE0;color:#2B5CE0;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">3</div>
+<div class="mm-t6"><strong style="font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#17191E">계약</strong><span style="font-size:14px;line-height:1.55;color:#4A4F5A">실사 후<br>계약서 전달</span></div>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 50px);width:calc(100% - 84px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 20 26" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v21"></path><path d="M4 17l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-c6" style="border-radius:50%;background:#FFFFFF;border:2px solid #2B5CE0;color:#2B5CE0;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">4</div>
+<div class="mm-t6"><strong style="font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#17191E">리스트 등재</strong><span style="font-size:14px;line-height:1.55;color:#4A4F5A">정기 모임과 연결</span></div>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 50px);width:calc(100% - 84px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 20 26" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v21"></path><path d="M4 17l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-c6" style="border-radius:50%;background:#FFFFFF;border:2px solid #2B5CE0;color:#2B5CE0;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">5</div>
+<div class="mm-t6"><strong style="font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#17191E">모임 배정</strong><span style="font-size:14px;line-height:1.55;color:#4A4F5A">호스트가 매장 선택<br>4개월 구독 단위</span></div>
+<div class="mm-arrow-h" aria-hidden="true" style="position:absolute;top:41px;left:calc(50% + 50px);width:calc(100% - 84px);height:2px;background:#2B5CE0"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:-1px;top:-6px"><path d="M1.5 1.5L7.5 7l-6 5.5"></path></svg></div>
+</div>
+<div class="mm-arrow-v" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 20 26" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v21"></path><path d="M4 17l6 6 6-6"></path></svg></div>
+
+<div class="mm-step" style="gap:16px">
+<div class="mm-c6" style="border-radius:50%;background:#FFFFFF;border:2px solid #2B5CE0;color:#2B5CE0;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">6</div>
+<div class="mm-t6"><strong style="font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#17191E">운영·정산</strong><span style="font-size:14px;line-height:1.55;color:#4A4F5A">월 1회 정산</span></div>
+</div>
+</div>
+
+<div class="mm-phases" style="margin-top:clamp(32px,5vw,56px)">
+<div class="mm-phase" style="background:#FFFFFF;border-radius:22px;padding:24px 26px;display:flex;flex-direction:column;gap:6px">
+<span style="font-size:14px;font-weight:800;color:#2B5CE0">1개월</span>
+<strong style="font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#17191E">상담 · 공간 준비</strong>
+<span style="font-size:14.5px;line-height:1.55;color:#4A4F5A">매장 조사 · 사진 촬영 · 장비 체크</span>
+</div>
+<div class="mm-join-h" aria-hidden="true"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" stroke="#8A909B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h18"></path><path d="M14 4l6 6-6 6"></path></svg></div>
+<div class="mm-join-v" aria-hidden="true"><svg width="20" height="24" viewBox="0 0 20 24" fill="none" stroke="#8A909B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v18"></path><path d="M4 14l6 6 6-6"></path></svg></div>
+<div class="mm-phase" style="background:#FFFFFF;border-radius:22px;padding:24px 26px;display:flex;flex-direction:column;gap:6px">
+<span style="font-size:14px;font-weight:800;color:#2B5CE0">1개월</span>
+<strong style="font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#17191E">리스트 등재</strong>
+<span style="font-size:14.5px;line-height:1.55;color:#4A4F5A">등록된 공간에 정기 모임 연결</span>
+</div>
+<div class="mm-join-h" aria-hidden="true"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" stroke="#8A909B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h18"></path><path d="M14 4l6 6-6 6"></path></svg></div>
+<div class="mm-join-v" aria-hidden="true"><svg width="20" height="24" viewBox="0 0 20 24" fill="none" stroke="#8A909B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v18"></path><path d="M4 14l6 6 6-6"></path></svg></div>
+<div class="mm-phase" style="background:#2B5CE0;border-radius:22px;padding:24px 26px;display:flex;flex-direction:column;gap:6px">
+<span style="font-size:14px;font-weight:800;color:#E6EDFF">4개월</span>
+<strong style="font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#FFFFFF">공간 구독 운영</strong>
+<span style="font-size:14.5px;line-height:1.55;color:#E6EDFF">구독 단위 4개월 · 단기 이용 없음</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="faq" style="scroll-margin-top:72px;background:#FFFFFF;padding:clamp(60px,10vw,128px) 0">
+<div style="max-width:880px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<h2 style="margin:0 0 clamp(20px,3vw,36px);font-size:clamp(26px,3.6vw,46px);line-height:1.32;font-weight:800;letter-spacing:-0.03em;color:#17191E">자주 묻는 질문</h2>
+<div style="border-top:2px solid #17191E">
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f0Exp}}" aria-controls="faq-a0" onClick="{{f0Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>수수료는 얼마인가요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f0Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f0Open}}" hint-placeholder-val="{{true}}">
+<div id="faq-a0" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A">
+<p style="margin:0">모임 1회 대관료에서 관리비 6.25%를 뺀 금액이 사장님께 정산돼요. 서비스 수수료 4%는 초기 매장에 한해 면제되고, 결제 대행(PG) 수수료는 별도로 차감됩니다. 정산은 월 1회예요.</p>
+<div style="margin-top:18px;overflow-x:auto;border:1px solid #E4E4E0;border-radius:16px"><table class="mm-feetbl" style="width:100%;min-width:420px;border-collapse:collapse;font-size:15px;line-height:1.5;color:#3A3F48"><caption style="caption-side:bottom;text-align:left;padding:12px 16px;font-size:13px;color:#5F6672;border-top:1px solid #E4E4E0">대관료 10만 원 기준 예시 · 실제 가격은 공간에 따라 8~12만 원 범위에서 책정됩니다.</caption><thead><tr style="background:#F4F4F2"><th scope="col" style="text-align:left;padding:12px 16px;font-weight:700;color:#4A4F5A">구분</th><th scope="col" style="text-align:right;padding:12px 16px;font-weight:700;color:#4A4F5A">초기 매장 (면제 중)</th><th scope="col" style="text-align:right;padding:12px 16px;font-weight:700;color:#4A4F5A">면제 종료 후</th></tr></thead><tbody><tr style="border-top:1px solid #E4E4E0"><th scope="row" style="text-align:left;padding:12px 16px;font-weight:600">모임 1회</th><td style="text-align:right;padding:12px 16px;font-variant-numeric:tabular-nums">93,750원</td><td style="text-align:right;padding:12px 16px;font-variant-numeric:tabular-nums">89,750원</td></tr><tr style="border-top:1px solid #E4E4E0"><th scope="row" style="text-align:left;padding:12px 16px;font-weight:600">주 1회 (월 4회)</th><td style="text-align:right;padding:12px 16px;font-variant-numeric:tabular-nums">375,000원</td><td style="text-align:right;padding:12px 16px;font-variant-numeric:tabular-nums">359,000원</td></tr><tr style="border-top:1px solid #E4E4E0;background:#F5F8FE"><th scope="row" style="text-align:left;padding:12px 16px;font-weight:700;color:#2B5CE0">주 2회 (월 8회)</th><td style="text-align:right;padding:12px 16px;font-weight:800;color:#2B5CE0;font-variant-numeric:tabular-nums">750,000원</td><td style="text-align:right;padding:12px 16px;font-variant-numeric:tabular-nums">718,000원</td></tr></tbody></table></div>
+</div>
+</sc-if>
+</div>
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f1Exp}}" aria-controls="faq-a1" onClick="{{f1Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>대관료는 어떻게 정해지나요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f1Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f1Open}}" hint-placeholder-val="{{false}}">
+<div id="faq-a1" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A">
+<p style="margin:0">1타임(약 4시간)에 8~12만 원 범위에서 공간별로 다르게 책정돼요. 방문 실사에서 좌석·장비·출입 방식을 확인하고, 실사 내용을 반영한 계약서로 안내드립니다.</p>
+</div>
+</sc-if>
+</div>
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f2Exp}}" aria-controls="faq-a2" onClick="{{f2Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>어떤 공간이 수요가 있나요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f2Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f2Open}}" hint-placeholder-val="{{false}}">
+<div id="faq-a2" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0">모모아는 지역별 모임 수요를 먼저 확인하고, 그 수요에 맞는 매장을 연결해요. 매장이 영업하지 않는 시간의 홀이라면 휴무일, 영업 전, 영업 후 모두 괜찮습니다.</p>
+<p style="margin:0">모임에 맞는 공간인지는 방문 실사에서 함께 확인해요. 좌석 수와 테이블 배치, 콘센트·와이파이, 화장실, 가까운 역 같은 조건을 봅니다.</p>
+</div>
+</sc-if>
+</div>
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f3Exp}}" aria-controls="faq-a3" onClick="{{f3Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>독서모임만 진행하나요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f3Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f3Open}}" hint-placeholder-val="{{false}}">
+<div id="faq-a3" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A">
+<p style="margin:0">지금은 독서모임을 연결하고 있어요. 기업·기관과 제휴해 정기적으로 운영되는 모임만 받기 때문에, 단기·일회성 대관은 없습니다.</p>
+</div>
+</sc-if>
+</div>
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f4Exp}}" aria-controls="faq-a4" onClick="{{f4Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>파손이나 분쟁이 생기면 어떻게 하나요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f4Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f4Open}}" hint-placeholder-val="{{false}}">
+<div id="faq-a4" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0">대관 전에는 오픈 점검을, 대관 후에는 뒷정리 확인을 모모아가 직접 해요. 제휴 모임은 이용 수칙을 지키고 정해진 시간에만 이용합니다.</p>
+<p style="margin:0">그래도 파손이나 분실 같은 문제가 생기면 모모아에 알려주세요. 아래 순서로 처리됩니다.</p>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:4px">
+<span style="padding:9px 14px;border-radius:999px;background:#F4F4F2;font-size:14px;font-weight:700;color:#17191E">사장님이 모모아에 신고</span>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A909B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+<span style="padding:9px 14px;border-radius:999px;background:#F4F4F2;font-size:14px;font-weight:700;color:#17191E">모모아 접수</span>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A909B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+<span style="padding:9px 14px;border-radius:999px;background:#EAF0FD;font-size:14px;font-weight:700;color:#2B5CE0">제휴사 처리·보상</span>
+</div>
+</div>
+</sc-if>
+</div>
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f5Exp}}" aria-controls="faq-a5" onClick="{{f5Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>사장님이 따로 하실 일이 있나요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f5Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f5Open}}" hint-placeholder-val="{{false}}">
+<div id="faq-a5" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0">세 가지만 부탁드려요.</p>
+<ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:4px">
+<li>대관 시간에는 매장 휴무</li>
+<li>모임 전 기본 정리 정돈</li>
+<li>출입 협조 (키 전달 · 직원 대기 · 스마트락 중 택1)</li>
+</ol>
+<p style="margin:0">모임 연결과 일정 배정, 대관 전후 점검, 장비 준비·회수, 정산은 모모아가 맡습니다.</p>
+</div>
+</sc-if>
+</div>
+
+<div style="border-bottom:1px solid #E4E4E0">
+<h3 style="margin:0"><button type="button" aria-expanded="{{f6Exp}}" aria-controls="faq-a6" onClick="{{f6Toggle}}" style="width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:clamp(16px,1.6vw,20px);line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:#17191E"><span style="display:flex;gap:12px"><span aria-hidden="true" style="color:#2B5CE0;font-weight:800">Q</span><span>계약은 몇 개월 단위인가요?</span></span><span aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;flex:none"><svg style="{{f6Icon}}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17191E" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f6Open}}" hint-placeholder-val="{{false}}">
+<div id="faq-a6" style="padding:0 4px 28px 26px;font-size:16px;line-height:1.75;color:#4A4F5A">
+<p style="margin:0">4개월 단위로 운영되며, 단기 이용은 없습니다. 계약서는 방문 실사 후 실사 내용을 반영해 보내드려요.</p>
+</div>
+</sc-if>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="apply" style="scroll-margin-top:72px;background:#2B5CE0;padding:clamp(60px,10vw,128px) 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+<div class="mm-apply">
+<div style="display:flex;flex-direction:column;gap:22px;color:#FFFFFF">
+<h2 style="margin:0;font-size:clamp(28px,3.8vw,50px);line-height:1.28;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF"><span style="display:block">휴무일, 영업 전, 영업 후</span><span style="display:block">모두 괜찮습니다.</span></h2>
+<p style="margin:0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#E6EDFF"><span style="display:block">업체명, 전화번호, 운영시간만 남겨주시면 상담 드리겠습니다.</span><span style="display:block">지금 결정하지 않으셔도 괜찮습니다. 편하게 문의해 주세요.</span></p>
+<div style="margin-top:8px;padding:clamp(20px,2.4vw,26px);border-radius:24px;background:#2451C9;display:flex;flex-direction:column;gap:6px">
+<span style="font-size:14px;font-weight:700;color:#E6EDFF">바로 연락하기</span>
+<span style="font-size:17px;font-weight:700;color:#FFFFFF">모모아 백승진</span>
+<a href="tel:010-3213-0792" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-0.01em;color:#FFFFFF;text-decoration:none"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4.5-2 1.3a10.5 10.5 0 0 0 5.7 5.7l1.3-2 4.5 1.5v3a2 2 0 0 1-2 2A15.5 15.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"></path></svg>010-3213-0792</a>
+<a href="mailto:syepaon1004@gmail.com" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:16px;font-weight:600;color:#FFFFFF;text-decoration:none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>syepaon1004@gmail.com</a>
+</div>
+</div>
+
+<div style="background:#FFFFFF;border-radius:28px;padding:clamp(22px,3.4vw,40px);box-shadow:0 30px 60px -30px rgba(6,18,58,.45)">
+<sc-if value="{{showForm}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{onSubmit}}" style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-0.02em;color:#17191E">상담 신청</h3>
+<p style="margin:0;font-size:14px;color:#5F6672"><span style="color:#2B5CE0;font-weight:800">*</span> 표시는 꼭 적어주세요</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<label for="f-biz" style="font-size:15px;font-weight:700;color:#17191E">업체명 <span aria-hidden="true" style="color:#2B5CE0">*</span></label>
+<input id="f-biz" class="mm-in" type="text" aria-required="true" placeholder="매장 이름" onInput="{{onBiz}}" style="height:52px;padding:0 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;color:#17191E">
+<sc-if value="{{errBiz}}" hint-placeholder-val="{{false}}"><span style="font-size:13.5px;font-weight:600;color:#C2410C">업체명을 적어주세요</span></sc-if>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<label for="f-phone" style="font-size:15px;font-weight:700;color:#17191E">전화번호 <span aria-hidden="true" style="color:#2B5CE0">*</span></label>
+<input id="f-phone" class="mm-in" type="tel" aria-required="true" placeholder="010-0000-0000" onInput="{{onPhone}}" style="height:52px;padding:0 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;color:#17191E">
+<sc-if value="{{errPhone}}" hint-placeholder-val="{{false}}"><span style="font-size:13.5px;font-weight:600;color:#C2410C">연락받으실 전화번호를 확인해 주세요</span></sc-if>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<label for="f-hours" style="font-size:15px;font-weight:700;color:#17191E">운영시간 <span aria-hidden="true" style="color:#2B5CE0">*</span></label>
+<input id="f-hours" class="mm-in" type="text" aria-required="true" placeholder="예: 11:00–20:00, 월요일 휴무" onInput="{{onHours}}" style="height:52px;padding:0 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;color:#17191E">
+<sc-if value="{{errHours}}" hint-placeholder-val="{{false}}"><span style="font-size:13.5px;font-weight:600;color:#C2410C">운영시간을 적어주세요</span></sc-if>
+</div>
+
+<details style="border:1px solid #E4E4E0;border-radius:14px;padding:0 16px">
+<summary style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px;cursor:pointer"><span style="font-size:15px;font-weight:700;color:#17191E">더 알려주시면 좋아요 <span style="font-size:13px;font-weight:600;color:#5F6672">선택</span></span><svg class="mm-sumchev" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A4F5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .2s ease"><path d="M6 9l6 6 6-6"></path></svg></summary>
+<div style="display:flex;flex-direction:column;gap:20px;padding:6px 0 20px">
+<fieldset style="border:0;margin:0;padding:0;min-width:0">
+<legend style="padding:0;margin-bottom:10px;font-size:15px;font-weight:700;color:#17191E">정기 휴무일</legend>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{holChips}}" as="c" hint-placeholder-count="8">
+<button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.toggle}}" style="{{c.style}}">{{c.label}}</button>
+</sc-for>
+</div>
+</fieldset>
+<fieldset style="border:0;margin:0;padding:0;min-width:0">
+<legend style="padding:0;margin-bottom:10px;font-size:15px;font-weight:700;color:#17191E">대여 가능 시간대 <span style="font-size:13px;font-weight:500;color:#5F6672">중복 선택 가능</span></legend>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{slotChips}}" as="c" hint-placeholder-count="3">
+<button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.toggle}}" style="{{c.style}}">{{c.label}}</button>
+</sc-for>
+</div>
+</fieldset>
+<div style="display:flex;flex-direction:column;gap:8px">
+<label for="f-area" style="font-size:15px;font-weight:700;color:#17191E">매장 위치</label>
+<input id="f-area" class="mm-in" type="text" placeholder="예: 서울 마포구 서교동" style="height:52px;padding:0 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;color:#17191E">
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<label for="f-memo" style="font-size:15px;font-weight:700;color:#17191E">남기실 말씀</label>
+<textarea id="f-memo" class="mm-in" rows="3" placeholder="궁금한 점을 편하게 적어주세요" style="min-height:96px;padding:14px 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;line-height:1.6;color:#17191E;resize:vertical"></textarea>
+</div>
+</div>
+</details>
+
+<div style="display:flex;flex-direction:column;gap:6px;padding:6px 16px;border-radius:14px;background:#F6F6F4">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+<label for="f-agree" style="display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;font-weight:600;color:#17191E;cursor:pointer"><input id="f-agree" type="checkbox" onChange="{{onAgree}}" style="width:20px;height:20px;margin:0;flex:none;accent-color:#2B5CE0"><span><span style="color:#2B5CE0;font-weight:800">[필수]</span> 개인정보 수집·이용 동의</span></label>
+<button type="button" aria-expanded="{{agreeExp}}" aria-controls="agree-detail" onClick="{{toggleAgree}}" style="min-height:44px;padding:0 4px;background:transparent;border:0;cursor:pointer;font-size:14px;font-weight:600;color:#4A4F5A;text-decoration:underline;flex:none">자세히</button>
+</div>
+<sc-if value="{{agreeOpen}}" hint-placeholder-val="{{false}}">
+<div id="agree-detail" style="display:flex;flex-direction:column;gap:10px;padding-bottom:12px">
+<dl style="margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;font-size:13.5px;line-height:1.6;color:#4A4F5A">
+<dt style="font-weight:700;color:#17191E">수집 항목</dt><dd style="margin:0">업체명, 전화번호, 운영시간 (선택: 정기 휴무일, 대여 가능 시간대, 매장 위치, 남기실 말씀)</dd>
+<dt style="font-weight:700;color:#17191E">이용 목적</dt><dd style="margin:0">상담 및 서비스 안내</dd>
+<dt style="font-weight:700;color:#17191E">보유 기간</dt><dd style="margin:0">상담 목적 달성 후 지체 없이 파기</dd>
+<dt style="font-weight:700;color:#17191E">위탁·국외 이전</dt><dd style="margin:0">신청서 접수·보관은 Netlify, Inc.(미국), 신청 알림 수신은 Google LLC(미국)</dd>
+<dt style="font-weight:700;color:#17191E">동의 거부</dt><dd style="margin:0">동의하지 않으실 수 있으며, 이 경우 온라인 신청 대신 전화로 상담해 드려요</dd>
+</dl>
+<a href="Privacy.dc.html" style="align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:700;color:#2B5CE0">개인정보 처리방침 전문 보기</a>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{errAgree}}" hint-placeholder-val="{{false}}"><span style="margin-top:-10px;font-size:13.5px;font-weight:600;color:#C2410C">개인정보 수집·이용에 동의해 주세요</span></sc-if>
+
+<button class="mm-btn" type="submit" style="height:58px;border:0;border-radius:14px;background:#2B5CE0;color:#FFFFFF;font-size:17px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px">상담 신청하기<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+</form>
+</sc-if>
+<sc-if value="{{showDone}}" hint-placeholder-val="{{false}}">
+<div aria-live="polite" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:56px 8px">
+<span aria-hidden="true" style="width:68px;height:68px;border-radius:50%;background:#EAF0FD;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<h3 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-0.02em;color:#17191E">상담 신청이 접수되었어요</h3>
+<p style="margin:0;font-size:16px;line-height:1.7;color:#4A4F5A">남겨주신 전화번호로 연락드릴게요.<br>지금 결정하지 않으셔도 괜찮습니다.</p>
+<button class="mm-btn" type="button" onClick="{{reset}}" style="margin-top:8px;height:48px;padding:0 20px;border-radius:12px;border:1.5px solid #D5D9E1;background:#FFFFFF;color:#17191E;font-size:15px;font-weight:700;cursor:pointer">처음으로</button>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background:#121418;color:#A9AEB8;padding:clamp(40px,5vw,56px) 0 48px">
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:16px 24px">
+<div style="display:flex;flex-direction:column;gap:14px;max-width:440px">
+<img src="./assets/bb0c3042ef65b3728faadcd3fb4b5a12.svg" alt="momoa." style="display:block;height:24px;width:auto;align-self:flex-start">
+<p style="margin:0;font-size:15px;line-height:1.6;color:#C9CDD5">모모아는 외식업 사장님들의 안정적인 삶과 행복을 고민합니다.</p>
+</div>
+<nav aria-label="약관" style="display:flex;flex-wrap:wrap;gap:4px 24px">
+<a href="Privacy.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:700;color:#FFFFFF;text-decoration:none">개인정보처리방침</a>
+<a href="Terms.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#C9CDD5;text-decoration:none">이용약관</a>
+</nav>
+</div>
+<div style="height:1px;background:#262A31"></div>
+<dl style="margin:0;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13.5px;line-height:1.6">
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">상호</dt><dd style="margin:0;color:#C9CDD5">인인협동조합</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">대표</dt><dd style="margin:0;color:#C9CDD5">최기건</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">사업자등록번호</dt><dd style="margin:0;color:#C9CDD5">664-86-03824</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">통신판매업 신고번호</dt><dd style="margin:0;color:#C9CDD5">제 2026-서울송파-1093호</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">주소</dt><dd style="margin:0;color:#C9CDD5">서울 마포구 신촌로 68 2층 MTA사무실</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">전화</dt><dd style="margin:0;color:#C9CDD5">010-3213-0792</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">이메일</dt><dd style="margin:0;color:#C9CDD5">syepaon1004@gmail.com</dd></div>
+<div style="display:flex;align-items:center;gap:8px"><dt style="color:#8A909B">개인정보보호책임자</dt><dd style="margin:0;color:#C9CDD5">백승진</dd></div>
+</dl>
+<p style="margin:0;font-size:13px;color:#8A909B">© 2026 momoa. All rights reserved.</p>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"formView":{"editor":"enum","options":["입력 화면","완료 화면"],"default":"입력 화면","section":"신청 폼"},"$preview":{"width":1440,"height":7030}}'>
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    this.state = { faq: 0, hol: [], slot: [], agreeOpen: false, submitted: false, errBiz: false, errPhone: false, errHours: false, errAgree: false };
+    this.f = { biz: '', phone: '', hours: '', agree: false };
+  }
+
+  pick(key, val, solo) {
+    const cur = this.state[key] || [];
+    let next;
+    if (cur.indexOf(val) >= 0) {
+      next = cur.filter(function (x) { return x !== val; });
+    } else if (solo && val === solo) {
+      next = [val];
+    } else {
+      next = cur.filter(function (x) { return x !== solo; }).concat([val]);
+    }
+    const patch = {};
+    patch[key] = next;
+    this.setState(patch);
+  }
+
+  renderVals() {
+    const self = this;
+    const st = this.state;
+    const BLUE = '#2B5CE0';
+    const NAVY = '#16245C';
+    const TUE = [3, 10, 17, 24];
+    const THU = [5, 12, 19, 26];
+
+    const days = [];
+    for (let i = 0; i < 35; i++) {
+      const n = i + 1;
+      const inMonth = n <= 30;
+      const isTue = TUE.indexOf(n) >= 0;
+      const isThu = THU.indexOf(n) >= 0;
+      const rent = isTue || isThu;
+      const week = Math.floor(i / 7);
+      const col = i % 7;
+      let cell = 'display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0 6px;min-height:50px;';
+      if (week === 1) {
+        cell += 'background:#EEF3FE;';
+        if (col === 0) cell += 'border-radius:12px 0 0 12px;';
+        if (col === 6) cell += 'border-radius:0 12px 12px 0;';
+      }
+      let num = 'position:relative;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#3A3F48;font-variant-numeric:tabular-nums;';
+      let amt = 'display:block;height:10px;font-size:9px;line-height:10px;font-weight:700;letter-spacing:-0.02em;white-space:nowrap;font-variant-numeric:tabular-nums;';
+      if (rent) {
+        const color = isTue ? BLUE : NAVY;
+        const delay = (0.3 + (week * 2 + (isThu ? 1 : 0)) * 0.13).toFixed(2) + 's';
+        num = 'position:relative;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#FFFFFF;background:' + color + ';font-variant-numeric:tabular-nums;animation:mmPop .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:' + delay + ';';
+        amt += 'color:' + color + ';animation:mmFade .45s ease-out both;animation-delay:' + delay + ';';
+      }
+      days.push({ num: inMonth ? String(n) : '', cell: cell, numStyle: num, amt: rent ? '+93,750' : '', amtStyle: amt, moon: isThu });
+    }
+
+    const out = { days: days };
+
+    for (let i = 0; i < 7; i++) {
+      const open = st.faq === i;
+      out['f' + i + 'Open'] = open;
+      out['f' + i + 'Exp'] = open ? 'true' : 'false';
+      out['f' + i + 'Icon'] = 'display:block;transition:transform .2s ease;transform:rotate(' + (open ? '45deg' : '0deg') + ')';
+      out['f' + i + 'Toggle'] = function () { self.setState({ faq: self.state.faq === i ? -1 : i }); };
+    }
+
+    const chipOn = 'min-height:44px;min-width:52px;padding:0 16px;border-radius:999px;border:1.5px solid #2B5CE0;background:#2B5CE0;color:#FFFFFF;font-size:15px;font-weight:700;cursor:pointer';
+    const chipOff = 'min-height:44px;min-width:52px;padding:0 16px;border-radius:999px;border:1.5px solid #D5D9E1;background:#FFFFFF;color:#3A3F48;font-size:15px;font-weight:600;cursor:pointer';
+    out.holChips = ['월', '화', '수', '목', '금', '토', '일', '없음'].map(function (d) {
+      const on = st.hol.indexOf(d) >= 0;
+      return { label: d, pressed: on ? 'true' : 'false', style: on ? chipOn : chipOff, toggle: function () { self.pick('hol', d, '없음'); } };
+    });
+    out.slotChips = ['휴무일', '영업 전', '영업 후'].map(function (d) {
+      const on = st.slot.indexOf(d) >= 0;
+      return { label: d, pressed: on ? 'true' : 'false', style: on ? chipOn : chipOff, toggle: function () { self.pick('slot', d, null); } };
+    });
+
+    out.onBiz = function (e) { self.f.biz = e.target.value; if (self.state.errBiz && self.f.biz.trim()) self.setState({ errBiz: false }); };
+    out.onPhone = function (e) { self.f.phone = e.target.value; if (self.state.errPhone && self.f.phone.replace(/[^0-9]/g, '').length >= 9) self.setState({ errPhone: false }); };
+    out.onHours = function (e) { self.f.hours = e.target.value; if (self.state.errHours && self.f.hours.trim()) self.setState({ errHours: false }); };
+    out.onAgree = function (e) { self.f.agree = !!e.target.checked; if (self.state.errAgree && self.f.agree) self.setState({ errAgree: false }); };
+    out.agreeOpen = st.agreeOpen;
+    out.agreeExp = st.agreeOpen ? 'true' : 'false';
+    out.toggleAgree = function () { self.setState({ agreeOpen: !self.state.agreeOpen }); };
+
+    out.onSubmit = function (e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const errs = {
+        errBiz: !self.f.biz.trim(),
+        errPhone: self.f.phone.replace(/[^0-9]/g, '').length < 9,
+        errHours: !self.f.hours.trim(),
+        errAgree: !self.f.agree
+      };
+      const ok = !errs.errBiz && !errs.errPhone && !errs.errHours && !errs.errAgree;
+      self.setState(Object.assign({}, errs, { submitted: ok }));
+    };
+    out.reset = function () {
+      self.f = { biz: '', phone: '', hours: '', agree: false };
+      self.setState({ submitted: false, hol: [], slot: [], agreeOpen: false, errBiz: false, errPhone: false, errHours: false, errAgree: false });
+    };
+
+    const done = st.submitted || this.props.formView === '완료 화면';
+    out.showDone = done;
+    out.showForm = !done;
+    out.errBiz = st.errBiz;
+    out.errPhone = st.errPhone;
+    out.errHours = st.errHours;
+    out.errAgree = st.errAgree;
+    return out;
+  }
+}
+</script>
+</body>
+</html>
