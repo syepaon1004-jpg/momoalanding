@@ -372,7 +372,7 @@ button[disabled]{opacity:.7;cursor:progress}
 <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4.5L19 9.5 14.5 5 4 15.5z"></path><path d="M12.5 7l4.5 4.5"></path></svg>
 <span style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">등록</span>
 </div>
-<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A">업체명, 전화번호, <br>운영시간만 남겨주세요</p>
+<p class="mm-desc" style="margin:0;font-size:15px;line-height:1.55;font-weight:500;color:#4A4F5A">업체명, 전화번호만 <br>남겨주세요</p>
 <a class="mm-btn mm-cta" href="#apply" style="display:inline-flex;align-items:center;gap:6px;height:46px;padding:0 18px;border-radius:12px;background:#EAF0FD;color:#2B5CE0;font-size:15px;font-weight:800;text-decoration:none">등록하기<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
 </div>
 <div class="mm-join-h" aria-hidden="true"><svg width="32" height="20" viewBox="0 0 32 20" fill="none" stroke="#2B5CE0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h26"></path><path d="M21 3l7 7-7 7"></path></svg></div>
@@ -663,7 +663,7 @@ button[disabled]{opacity:.7;cursor:progress}
 <div class="mm-apply">
 <div style="display:flex;flex-direction:column;gap:22px;color:#FFFFFF">
 <h2 style="margin:0;font-size:clamp(28px,3.8vw,50px);line-height:1.28;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF"><span style="display:block">휴무일, 영업 전, 영업 후</span><span style="display:block">모두 괜찮습니다.</span></h2>
-<p style="margin:0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#E6EDFF"><span style="display:block">업체명, 전화번호, 운영시간만 남겨주시면 상담 드리겠습니다.</span><span style="display:block">지금 결정하지 않으셔도 괜찮습니다. 편하게 문의해 주세요.</span></p>
+<p style="margin:0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#E6EDFF"><span style="display:block">업체명, 전화번호만 남겨주시면 상담 드리겠습니다.</span><span style="display:block">지금 결정하지 않으셔도 괜찮습니다. 편하게 문의해 주세요.</span></p>
 <div style="margin-top:8px;padding:clamp(20px,2.4vw,26px);border-radius:24px;background:#2451C9;display:flex;flex-direction:column;gap:6px">
 <span style="font-size:14px;font-weight:700;color:#E6EDFF">바로 연락하기</span>
 <span style="font-size:17px;font-weight:700;color:#FFFFFF">모모아 백승진</span>
@@ -691,11 +691,6 @@ button[disabled]{opacity:.7;cursor:progress}
 <input id="f-phone" name="phone" class="mm-in" type="tel" inputmode="tel" autocomplete="tel" aria-required="true" aria-describedby="e-phone" placeholder="010-0000-0000" style="height:52px;padding:0 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;color:#17191E">
 <span id="e-phone" class="mm-err" hidden>연락받으실 전화번호를 확인해 주세요</span>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<label for="f-hours" style="font-size:15px;font-weight:700;color:#17191E">운영시간 <span aria-hidden="true" style="color:#2B5CE0">*</span></label>
-<input id="f-hours" name="hours" class="mm-in" type="text" aria-required="true" aria-describedby="e-hours" placeholder="예: 11:00–20:00, 월요일 휴무" style="height:52px;padding:0 16px;border:1px solid #D5D9E1;border-radius:12px;background:#FFFFFF;font-size:16px;color:#17191E">
-<span id="e-hours" class="mm-err" hidden>운영시간을 적어주세요</span>
-</div>
 <details style="border:1px solid #E4E4E0;border-radius:14px;padding:0 16px">
 <summary style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px;cursor:pointer"><span style="font-size:15px;font-weight:700;color:#17191E">더 알려주시면 좋아요 <span style="font-size:13px;font-weight:600;color:#5F6672">선택</span></span><svg class="mm-sumchev" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A4F5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .2s ease"><path d="M6 9l6 6 6-6"></path></svg></summary>
 <div style="display:flex;flex-direction:column;gap:20px;padding:6px 0 20px">
@@ -713,7 +708,7 @@ button[disabled]{opacity:.7;cursor:progress}
 </div>
 </fieldset>
 <fieldset style="border:0;margin:0;padding:0;min-width:0">
-<legend style="padding:0;margin-bottom:10px;font-size:15px;font-weight:700;color:#17191E">대여 가능 시간대 <span style="font-size:13px;font-weight:500;color:#5F6672">중복 선택 가능</span></legend>
+<legend style="padding:0;margin-bottom:10px;font-size:15px;font-weight:700;color:#17191E">대관 희망 시간대 <span style="font-size:13px;font-weight:500;color:#5F6672">중복 선택 가능</span></legend>
 <div style="display:flex;flex-wrap:wrap;gap:8px">
 <label class="mm-chip"><input type="checkbox" name="time_slots" value="휴무일"><span>휴무일</span></label>
 <label class="mm-chip"><input type="checkbox" name="time_slots" value="영업 전"><span>영업 전</span></label>
@@ -737,7 +732,7 @@ button[disabled]{opacity:.7;cursor:progress}
 </div>
 <div id="agree-detail" hidden style="display:flex;flex-direction:column;gap:10px;padding-bottom:12px">
 <dl style="margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;font-size:13.5px;line-height:1.6;color:#4A4F5A">
-<dt style="font-weight:700;color:#17191E">수집 항목</dt><dd style="margin:0">업체명, 전화번호, 운영시간 (선택: 정기 휴무일, 대여 가능 시간대, 매장 위치, 남기실 말씀)</dd>
+<dt style="font-weight:700;color:#17191E">수집 항목</dt><dd style="margin:0">업체명, 전화번호 (선택: 정기 휴무일, 대관 희망 시간대, 매장 위치, 남기실 말씀)</dd>
 <dt style="font-weight:700;color:#17191E">이용 목적</dt><dd style="margin:0">상담 및 서비스 안내</dd>
 <dt style="font-weight:700;color:#17191E">보유 기간</dt><dd style="margin:0">상담 목적 달성 후 지체 없이 파기</dd>
 <dt style="font-weight:700;color:#17191E">위탁·국외 이전</dt><dd style="margin:0">신청서 접수·보관은 Netlify, Inc.(미국), 신청 알림 수신은 Google LLC(미국)</dd>
@@ -833,8 +828,7 @@ button[disabled]{opacity:.7;cursor:progress}
   var agree = document.getElementById('f-agree');
   var checks = [
     { input: form.elements['business_name'], err: 'e-biz', bad: function (v) { return !v.trim(); } },
-    { input: form.elements['phone'], err: 'e-phone', bad: function (v) { return v.replace(/[^0-9]/g, '').length < 9; } },
-    { input: form.elements['hours'], err: 'e-hours', bad: function (v) { return !v.trim(); } }
+    { input: form.elements['phone'], err: 'e-phone', bad: function (v) { return v.replace(/[^0-9]/g, '').length < 9; } }
   ];
   function mark(c, bad) {
     document.getElementById(c.err).hidden = !bad;
@@ -867,7 +861,6 @@ button[disabled]{opacity:.7;cursor:progress}
     body.append('bot-field', form.elements['bot-field'].value);
     body.append('business_name', form.elements['business_name'].value.trim());
     body.append('phone', form.elements['phone'].value.trim());
-    body.append('hours', form.elements['hours'].value.trim());
     body.append('holidays', picked('holidays'));
     body.append('time_slots', picked('time_slots'));
     body.append('location', form.elements['location'].value.trim());
