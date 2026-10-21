@@ -1,3 +1,10 @@
 # Deploy only the static site. Canvas export files at the repo root are not published.
 [build]
   publish = "momoa-site"
+
+# Send visitors on the netlify.app address to the custom domain.
+[[redirects]]
+  from = "https://storemomoa.netlify.app/*"
+  to = "https://momoa.store/:splat"
+  status = 301
+  force = true
