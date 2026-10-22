@@ -144,45 +144,49 @@ button[type="submit"][disabled]{opacity:.7;cursor:wait}
 .sd{padding:0;border:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;margin:0;color:#17191E}
 .sd::backdrop{background:rgba(10,12,16,.6)}
 .sd[open]{display:flex;align-items:center;justify-content:center}
-.sd-box{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);width:min(980px,calc(100% - 48px));max-height:calc(100% - 48px);background:#FFFFFF;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
-.sd-photo{position:relative;background:#E9EBEF;min-height:0}
+.sd-box{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:min(960px,calc(100% - 48px));max-height:calc(100% - 48px);background:#FFFFFF;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.sd-side{display:flex;flex-direction:column;min-width:0;padding-bottom:28px;background:#F7F8FA;overflow:auto}
+.sd-photo{position:relative;flex:none;aspect-ratio:4 / 3;background:#E9EBEF;overflow:hidden}
 .sd-photo img{display:block;width:100%;height:100%;object-fit:cover}
-.sd-body{display:flex;flex-direction:column;min-height:0;max-height:calc(100vh - 48px);overflow:auto}
-.sd-head{padding:28px 28px 0}
+.sd-body{display:flex;flex-direction:column;min-width:0;min-height:0;max-height:calc(100vh - 48px);overflow:auto}
+.sd-sec{margin:0;padding:28px 80px 0 28px;min-height:72px;font-size:16px;font-weight:800;color:#17191E}
+.sd-head{padding:22px 28px 0}
 .sd-kicker{margin:0;font-size:13px;font-weight:700;color:#2B5CE0}
 .sd-title{margin:6px 0 0;font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1.25}
 .sd-loc{margin:6px 0 0;font-size:15px;color:#4A4F5A}
-.sd-keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:20px 28px 0}
-.sd-key{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:14px;background:#F2F5FD}
+.sd-keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 28px 0}
+.sd-key{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:14px;background:#FFFFFF;border:1px solid #E4E8F2}
 .sd-key span{font-size:12.5px;font-weight:600;color:#4A4F5A}
 .sd-key strong{font-size:18px;font-weight:800;color:#17191E;font-variant-numeric:tabular-nums}
-.sd-list{margin:16px 28px 0;padding:0;display:grid;grid-template-columns:auto minmax(0,1fr);border-top:2px solid #17191E}
+.sd-list{margin:0 28px;padding:0;display:grid;grid-template-columns:auto minmax(0,1fr);border-top:2px solid #17191E}
 .sd-list dt,.sd-list dd{margin:0;padding:12px 0;border-bottom:1px solid #E4E6EB;font-size:15px;line-height:1.5}
 .sd-list dt{padding-right:20px;font-weight:700;color:#2B5CE0;white-space:nowrap}
 .sd-list dd{font-weight:600}
 .sd-list dd small{display:block;margin-top:2px;font-size:13px;font-weight:500;color:#5F6672}
-.sd-foot{position:sticky;bottom:0;margin-top:auto;display:flex;gap:8px;align-items:center;padding:16px 28px 24px;background:linear-gradient(rgba(255,255,255,0),#FFFFFF 18px)}
+.sd-foot{position:sticky;bottom:0;margin-top:auto;display:flex;gap:8px;align-items:center;padding:20px 28px 28px;background:linear-gradient(rgba(255,255,255,0),#FFFFFF 18px)}
 .sd-cta{flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;padding:0 18px;border:0;border-radius:14px;background:#2B5CE0;color:#FFFFFF;font-size:16px;font-weight:700;cursor:pointer}
 .sd-cta:hover{filter:brightness(1.07)}
 .sd-nav{flex:none;width:52px;height:52px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #D5D9E1;border-radius:14px;background:#FFFFFF;color:#17191E;cursor:pointer}
 .sd-nav:hover{background:#F4F5F7}
-.sd-close{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#17191E;cursor:pointer;box-shadow:0 4px 14px -4px rgba(0,0,0,.35)}
+.sd-close{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #E4E6EB;border-radius:999px;background:rgba(255,255,255,.96);color:#17191E;cursor:pointer;box-shadow:0 4px 14px -6px rgba(0,0,0,.3)}
 .sd-count{position:absolute;left:14px;bottom:14px;padding:5px 10px;border-radius:999px;background:rgba(17,19,24,.7);color:#FFFFFF;font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums}
 html.sd-lock{overflow:hidden}
 @media (max-width:760px){
 .sd[open]{align-items:flex-end}
 .sd-box{display:flex;flex-direction:column;width:100%;max-height:calc(100% - 24px);border-radius:22px 22px 0 0;overflow:auto;overscroll-behavior:contain}
-.sd-photo{flex:none;aspect-ratio:4 / 3}
+.sd-side{overflow:visible;padding-bottom:4px;background:#FFFFFF}
 .sd-body{overflow:visible;max-height:none}
+.sd-sec{display:none}
 .sd-head{padding:20px 18px 0}
 .sd-title{font-size:23px}
 .sd-keys{margin:16px 18px 0}
-.sd-key{padding:10px}
+.sd-key{padding:10px;background:#F2F5FD;border:0}
 .sd-key strong{font-size:16px}
-.sd-list{margin:14px 18px 0}
+.sd-list{margin:16px 18px 0}
 .sd-list dt,.sd-list dd{font-size:14.5px;padding:11px 0}
 .sd-list dt{padding-right:14px}
 .sd-foot{padding:14px 18px calc(14px + env(safe-area-inset-bottom))}
+}
 }
 @media (prefers-reduced-motion:reduce){.mb-space-img img{transition:none}}
 </style>
@@ -869,8 +873,8 @@ html.sd-lock{overflow:hidden}
 <dialog id="space-dlg" class="sd" aria-labelledby="sd-title">
 <div class="sd-box">
 <button type="button" class="sd-close" data-sd-close aria-label="닫기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+<div class="sd-side">
 <div class="sd-photo"><img id="sd-img" alt=""><span id="sd-count" class="sd-count"></span></div>
-<div class="sd-body">
 <div class="sd-head">
 <p class="sd-kicker">모모아 공간 풀</p>
 <h3 id="sd-title" class="sd-title"></h3>
@@ -881,6 +885,9 @@ html.sd-lock{overflow:hidden}
 <div class="sd-key"><span>최대 인원</span><strong id="sd-cap"></strong></div>
 <div class="sd-key"><span>의자</span><strong id="sd-chairs"></strong></div>
 </div>
+</div>
+<div class="sd-body">
+<p class="sd-sec">공간 정보</p>
 <dl id="sd-list" class="sd-list"></dl>
 <div class="sd-foot">
 <button type="button" class="sd-nav" data-sd-step="-1" aria-label="이전 공간"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
@@ -923,8 +930,7 @@ html.sd-lock{overflow:hidden}
     $('sd-list').innerHTML = rows.map(function (r) {
       return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + (r[2] ? '<small>' + esc(r[2]) + '</small>' : '') + '</dd>';
     }).join('');
-    var body = dlg.querySelector('.sd-body'), box = dlg.querySelector('.sd-box');
-    body.scrollTop = 0; box.scrollTop = 0;
+    ['.sd-body', '.sd-box', '.sd-side'].forEach(function (q) { var el = dlg.querySelector(q); if (el) el.scrollTop = 0; });
   }
   function open(i, btn) {
     opener = btn || null;
