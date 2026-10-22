@@ -88,10 +88,6 @@ p{text-wrap:pretty}
 .mb-hero{gap:28px}
 .mb-herotext{gap:18px !important}
 .mb-pill{font-size:13px !important;padding:7px 12px !important}
-.mb-h1{font-size:clamp(25px,7.4vw,31px) !important}
-.mb-herosub{font-size:15px !important}
-.mb-herobtns{width:100%;flex-wrap:nowrap !important;margin-top:2px !important}
-.mb-herobtn{flex:1 1 0;justify-content:center;height:52px !important;font-size:16px !important;padding:0 12px !important;white-space:nowrap}
 .mb-herocard{max-width:none !important;border-radius:22px !important;box-shadow:0 20px 40px -24px rgba(6,18,58,.55) !important}
 .mb-heroimg{height:150px !important}
 .mb-cardprice{font-size:28px !important}
@@ -125,6 +121,19 @@ p{text-wrap:pretty}
 *{animation:none !important;transition:none !important}
 html{scroll-behavior:auto}
 }
+.mb-h1l{display:block}
+.mb-hl{white-space:nowrap;color:#FFE066}
+.mb-hdcta{display:inline-flex;align-items:center;gap:6px;height:46px;padding:0 20px;border-radius:12px;background:#2B5CE0;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap}
+.mb-hdcta:hover{color:#FFFFFF}
+.mb-hdcta .mb-hdcta-l{display:inline}
+@media (max-width:760px){
+.mb-herotext{gap:16px !important}
+.mb-h1{font-size:clamp(28px,8.2vw,34px) !important;line-height:1.28 !important}
+.mb-herosub{font-size:17px !important}
+.mb-herodesc{font-size:14.5px !important;margin-top:-8px !important}
+.mb-hdcta{height:40px;padding:0 14px;font-size:14px}
+.mb-hdcta .mb-hdcta-l{display:none}
+}
 [hidden]{display:none !important}
 .faq-ic{display:block;transition:transform .2s ease}
 .mb-faqq[aria-expanded="true"] .faq-ic{transform:rotate(45deg)}
@@ -139,7 +148,7 @@ button[type="submit"][disabled]{opacity:.7;cursor:wait}
 .mb-space:hover .mb-space-img img{transform:scale(1.04)}
 .mb-space-more{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:2px;padding:6px 8px 6px 11px;border-radius:999px;background:rgba(255,255,255,.94);color:#17191E;font-size:13px;font-weight:700;box-shadow:0 4px 12px -4px rgba(0,0,0,.3)}
 .mb-space-cap{display:flex;flex-direction:column;gap:4px}
-.mb-space-cap strong{font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E}
+.mb-space-cap strong{font-size:16px;line-height:1.35;font-weight:800;letter-spacing:-0.01em;color:#17191E}
 .mb-space-cap span{font-size:14px;color:#4A4F5A}
 .sd{padding:0;border:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;margin:0;color:#17191E}
 .sd::backdrop{background:rgba(10,12,16,.6)}
@@ -202,7 +211,7 @@ html.sd-lock{overflow:hidden}
 <a href="#pool" style="font-size:15px;font-weight:600;color:#3A3F48;text-decoration:none">공간 풀</a>
 <a href="#faq" style="font-size:15px;font-weight:600;color:#3A3F48;text-decoration:none">자주 묻는 질문</a>
 </nav>
-<a class="mm-btn" href="#apply" style="display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:12px;background:#2B5CE0;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none">미팅 요청</a>
+<a class="mm-btn mb-hdcta" href="#apply"><span class="mb-hdcta-l">30분 </span>미팅 요청하기<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
 </div>
 </header>
 
@@ -211,26 +220,22 @@ html.sd-lock{overflow:hidden}
 <div class="mb-hero">
 <div class="mb-herotext" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:26px;color:#FFFFFF">
 <span class="mb-pill" style="display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.10);font-size:14px;font-weight:600;letter-spacing:-0.01em;color:#FFFFFF">유료 모임 서비스를 위한 공간 제휴</span>
-<h1 class="mb-h1" style="margin:0;font-size:clamp(30px,3.8vw,52px);line-height:1.26;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF"><span style="display:block">모임은 준비되었는데,</span><span style="display:block">공간이 아직 없으신가요?</span></h1>
-<p class="mb-herosub" style="margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.65;font-weight:500;color:#FFFFFF">식당·카페가 쉬는 시간을 모임 공간으로 연결하고 관리합니다.</p>
-<div class="mb-herobtns" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px">
-<a class="mm-btn mb-herobtn" href="#apply" style="display:inline-flex;align-items:center;gap:8px;height:56px;padding:0 24px;border-radius:14px;background:#FFFFFF;color:#2B5CE0;font-size:17px;font-weight:800;text-decoration:none">미팅 요청하기<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
-<a class="mm-btn mb-herobtn" href="#pool" style="display:inline-flex;align-items:center;height:56px;padding:0 22px;border-radius:14px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-size:17px;font-weight:700;text-decoration:none">공간 풀 보기</a>
-</div>
-<p style="margin:0;font-size:15px;line-height:1.6;color:#E6EDFF">확장을 고민 중인 지역만 알려주셔도 됩니다.</p>
+<h1 class="mb-h1" style="margin:0;font-size:clamp(34px,4.5vw,60px);line-height:1.22;font-weight:800;letter-spacing:-0.04em;color:#FFFFFF"><span class="mb-h1l">매장의 남는 공간을</span> <span class="mb-h1l"><span class="mb-hl">절반 이하의 가격</span>으로</span> <span class="mb-h1l">정기모임에게 제공합니다.</span></h1>
+<p class="mb-herosub" style="margin:0;font-size:clamp(18px,1.9vw,24px);line-height:1.5;font-weight:700;letter-spacing:-0.02em;color:#FFFFFF">모임은 준비되었는데, 공간이 아직 없으신가요?</p>
+<p class="mb-herodesc" style="margin:-10px 0 0;font-size:clamp(15px,1.3vw,17px);line-height:1.6;font-weight:500;color:#DCE5FF">식당·카페가 쉬는 시간을 모임 공간으로 연결하고 관리합니다.</p>
 </div>
 
 <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px">
 <div class="mb-herobg" aria-hidden="true" style="position:absolute;left:50%;top:46%;width:min(560px,128%);aspect-ratio:1 / 1;transform:translate(-50%,-50%);border-radius:50%;background:#3866E5"></div>
 <article class="mb-herocard" style="position:relative;width:100%;max-width:420px;background:#FFFFFF;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -24px rgba(6,18,58,.55)">
-<img class="mb-heroimg" src="/business/assets/cafe-a-hall.jpg" alt="카페 A 홀 내부" style="display:block;width:100%;height:210px;object-fit:cover">
+<img class="mb-heroimg" src="/business/assets/cafe-a-hall.jpg" alt="카페피엠무드 홀 내부" style="display:block;width:100%;height:210px;object-fit:cover">
 <div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:16px">
 <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-<strong style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">홍대입구역 카페 A</strong>
+<strong style="font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#17191E">홍대입구역 카페피엠무드</strong>
 <span style="font-size:12px;font-weight:700;color:#2B5CE0;background:#EAF0FD;border-radius:999px;padding:6px 11px;flex:none">모모아 제휴 공간</span>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:6px">
-<span style="padding:6px 10px;border-radius:8px;background:#F4F4F2;font-size:13px;font-weight:600;color:#3A3F48">홍대입구역 도보 5분</span>
+<span style="padding:6px 10px;border-radius:8px;background:#F4F4F2;font-size:13px;font-weight:600;color:#3A3F48">홍대입구역 도보 1분</span>
 <span style="padding:6px 10px;border-radius:8px;background:#F4F4F2;font-size:13px;font-weight:600;color:#3A3F48">독립 공간</span>
 <span style="padding:6px 10px;border-radius:8px;background:#F4F4F2;font-size:13px;font-weight:600;color:#3A3F48">최대 20명</span>
 <span style="padding:6px 10px;border-radius:8px;background:#F4F4F2;font-size:13px;font-weight:600;color:#3A3F48">내부 화장실</span>
@@ -325,13 +330,13 @@ html.sd-lock{overflow:hidden}
 
 <article style="background:#FFFFFF;border:2px solid #2B5CE0;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 28px 56px -32px rgba(43,92,224,.55)">
 <div style="min-height:46px;padding:10px 26px;background:#2B5CE0;display:flex;align-items:center;gap:12px"><img src="/business/assets/logo-momoa-white.svg" alt="momoa" style="display:block;height:21px;width:auto"><span aria-hidden="true" style="width:1px;height:16px;background:rgba(255,255,255,.6)"></span><span style="font-size:16px;font-weight:800;letter-spacing:-0.01em;color:#FFFFFF">제휴 공간</span></div>
-<img src="/business/assets/cafe-a-hall.jpg" alt="카페 A 홀 내부" style="display:block;width:100%;height:clamp(140px,11vw,160px);object-fit:cover">
+<img src="/business/assets/cafe-a-hall.jpg" alt="카페피엠무드 홀 내부" style="display:block;width:100%;height:clamp(140px,11vw,160px);object-fit:cover">
 <div style="padding:16px 26px 2px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-<h3 style="margin:0;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#17191E">홍대입구역 카페 A</h3>
+<h3 style="margin:0;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#17191E">홍대입구역 카페피엠무드</h3>
 </div>
 <div style="padding:2px 26px 10px;display:flex;flex-direction:column">
 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) 22px;align-items:center;gap:12px;min-height:42px;border-bottom:1px solid #EEEFF2"><span style="font-size:15px;color:#5F6672">분위기</span><span style="font-size:16px;font-weight:600;color:#17191E">원목 가구와 따뜻한 채광</span><svg role="img" aria-label="충족" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></div>
-<div style="display:grid;grid-template-columns:92px minmax(0,1fr) 22px;align-items:center;gap:12px;min-height:42px;border-bottom:1px solid #EEEFF2"><span style="font-size:15px;color:#5F6672">접근성</span><span style="font-size:16px;font-weight:600;color:#17191E">홍대입구역 도보 5분</span><svg role="img" aria-label="충족" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></div>
+<div style="display:grid;grid-template-columns:92px minmax(0,1fr) 22px;align-items:center;gap:12px;min-height:42px;border-bottom:1px solid #EEEFF2"><span style="font-size:15px;color:#5F6672">접근성</span><span style="font-size:16px;font-weight:600;color:#17191E">홍대입구역 도보 1분</span><svg role="img" aria-label="충족" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></div>
 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) 22px;align-items:center;gap:12px;min-height:42px;border-bottom:1px solid #EEEFF2"><span style="font-size:15px;color:#5F6672">단독 공간</span><span style="font-size:16px;font-weight:600;color:#17191E">독립 공간 사용 가능</span><svg role="img" aria-label="충족" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></div>
 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) 22px;align-items:center;gap:12px;min-height:42px;border-bottom:1px solid #EEEFF2"><span style="font-size:15px;color:#5F6672">규모</span><span style="font-size:16px;font-weight:600;color:#17191E">최대 20명</span><svg role="img" aria-label="충족" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></div>
 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) 22px;align-items:center;gap:12px;min-height:42px"><span style="font-size:15px;color:#5F6672">화장실</span><span style="font-size:16px;font-weight:600;color:#17191E">매장 내부 전용</span><svg role="img" aria-label="충족" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></div>
@@ -366,8 +371,8 @@ html.sd-lock{overflow:hidden}
 </div>
 <div style="padding:8px 10px 9px 8px;background:#EEF3FE;border-bottom:1px solid #DCE5FB">
 <div style="position:relative">
-<img src="/business/assets/cafe-a-hall.jpg" alt="카페 A 홀 내부" style="display:block;width:100%;aspect-ratio:16 / 9;max-height:120px;object-fit:cover;border-radius:10px">
-<span style="position:absolute;left:4px;bottom:4px;font-size:10.5px;font-weight:700;line-height:1.3;color:#FFFFFF;background:rgba(21,23,28,.6);border-radius:4px;padding:2px 6px;white-space:nowrap">카페 A</span>
+<img src="/business/assets/cafe-a-hall.jpg" alt="카페피엠무드 홀 내부" style="display:block;width:100%;aspect-ratio:16 / 9;max-height:120px;object-fit:cover;border-radius:10px">
+<span style="position:absolute;left:4px;bottom:4px;font-size:10.5px;font-weight:700;line-height:1.3;color:#FFFFFF;background:rgba(21,23,28,.6);border-radius:4px;padding:2px 6px;white-space:nowrap">카페피엠무드</span>
 </div>
 </div>
 
@@ -377,7 +382,7 @@ html.sd-lock{overflow:hidden}
 
 <span style="padding:8px 2px 8px 12px;font-size:12px;line-height:1.35;color:#5F6672;border-bottom:1px solid #EEEFF2;display:flex;align-items:center;white-space:nowrap">접근성</span>
 <span style="padding:8px 8px 8px 4px;font-size:13.5px;line-height:1.35;border-bottom:1px solid #EEEFF2;display:flex;align-items:center;justify-content:space-between;gap:4px;font-weight:700;color:#C8322A">역 도보 12분<svg role="img" aria-label="미충족" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8322A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M9 9l6 6"></path><path d="M15 9l-6 6"></path></svg></span>
-<span style="padding:8px 10px 8px 8px;font-size:13.5px;line-height:1.35;background:#EEF3FE;border-bottom:1px solid #DCE5FB;display:flex;align-items:center;justify-content:space-between;gap:4px;font-weight:600;color:#17191E">역 도보 5분<svg role="img" aria-label="충족" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></span>
+<span style="padding:8px 10px 8px 8px;font-size:13.5px;line-height:1.35;background:#EEF3FE;border-bottom:1px solid #DCE5FB;display:flex;align-items:center;justify-content:space-between;gap:4px;font-weight:600;color:#17191E">역 도보 1분<svg role="img" aria-label="충족" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></span>
 
 <span style="padding:8px 2px 8px 12px;font-size:12px;line-height:1.35;color:#5F6672;border-bottom:1px solid #EEEFF2;display:flex;align-items:center;white-space:nowrap">단독 공간</span>
 <span style="padding:8px 8px 8px 4px;font-size:13.5px;line-height:1.35;border-bottom:1px solid #EEEFF2;display:flex;align-items:center;justify-content:space-between;gap:4px;font-weight:600;color:#17191E">단독 사용<svg role="img" aria-label="충족" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B5CE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.7 2.7L16 9.8"></path></svg></span>
@@ -514,12 +519,12 @@ html.sd-lock{overflow:hidden}
 <span style="font-size:14px;color:#5F6672">홍대입구역 인근 6곳 · 2026. 10. 21 기준 · 사진을 누르면 상세 정보를 볼 수 있어요</span>
 </div>
 <div class="mb-pool" style="margin-top:16px">
-<button type="button" class="mb-space" data-space="a" aria-haspopup="dialog" aria-label="카페 A 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-a.jpg" alt="카페 A 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 A</strong><span>13평 · 최대 20명</span></span></button>
-<button type="button" class="mb-space" data-space="b" aria-haspopup="dialog" aria-label="카페 B 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-b.jpg" alt="카페 B 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 B</strong><span>37평 · 최대 30명</span></span></button>
-<button type="button" class="mb-space" data-space="c" aria-haspopup="dialog" aria-label="카페 C 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-c.jpg" alt="카페 C 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 C</strong><span>30평 · 최대 50명</span></span></button>
-<button type="button" class="mb-space" data-space="d" aria-haspopup="dialog" aria-label="카페 D 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-d.jpg" alt="카페 D 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 D</strong><span>25평 · 최대 30명</span></span></button>
-<button type="button" class="mb-space" data-space="e" aria-haspopup="dialog" aria-label="카페 E 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-e.jpg" alt="카페 E 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 E</strong><span>25평 · 최대 20명</span></span></button>
-<button type="button" class="mb-space" data-space="f" aria-haspopup="dialog" aria-label="카페 F 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-f.jpg" alt="카페 F 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 F</strong><span>25평 · 최대 24명</span></span></button>
+<button type="button" class="mb-space" data-space="a" aria-haspopup="dialog" aria-label="카페피엠무드 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-a.jpg" alt="카페피엠무드 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페피엠무드</strong><span>13평 · 최대 20명</span></span></button>
+<button type="button" class="mb-space" data-space="b" aria-haspopup="dialog" aria-label="유토카페 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-b.jpg" alt="유토카페 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>유토카페</strong><span>37평 · 최대 30명</span></span></button>
+<button type="button" class="mb-space" data-space="c" aria-haspopup="dialog" aria-label="카페 더누크 스튜디오A 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-c.jpg" alt="카페 더누크 스튜디오A 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 더누크 스튜디오A</strong><span>30평 · 최대 50명</span></span></button>
+<button type="button" class="mb-space" data-space="d" aria-haspopup="dialog" aria-label="카페 더누크 스튜디오B 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-d.jpg" alt="카페 더누크 스튜디오B 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 더누크 스튜디오B</strong><span>25평 · 최대 30명</span></span></button>
+<button type="button" class="mb-space" data-space="e" aria-haspopup="dialog" aria-label="쥬마뺄 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-e.jpg" alt="쥬마뺄 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>쥬마뺄</strong><span>25평 · 최대 20명</span></span></button>
+<button type="button" class="mb-space" data-space="f" aria-haspopup="dialog" aria-label="카페 더누크 스튜디오C 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-f.jpg" alt="카페 더누크 스튜디오C 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 더누크 스튜디오C</strong><span>25평 · 최대 24명</span></span></button>
 </div>
 <div class="mb-steps mb-block" style="margin-top:clamp(28px,4vw,48px)">
 <div class="mb-step" style="background:#FFFFFF;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:6px">
@@ -856,13 +861,13 @@ html.sd-lock{overflow:hidden}
     f.co.focus();
   });
 
-  // 모바일 하단 고정 버튼: 히어로 버튼이 지나가면 보이고, 신청 폼 근처에서는 숨김 (표시 여부는 CSS로 760px 이하에서만)
+  // 모바일 하단 고정 버튼: 히어로 영역이 지나가면 보이고, 신청 폼 근처에서는 숨김 (표시 여부는 CSS로 760px 이하에서만)
   var bar = $('m-bar');
-  var cta = document.querySelector('.mb-herobtns');
+  var cta = document.querySelector('.mb-herosec');
   var apply = $('apply');
   function onScroll() {
     var vh = window.innerHeight || document.documentElement.clientHeight || 800;
-    var show = cta.getBoundingClientRect().bottom < 56 && apply.getBoundingClientRect().top > vh * 0.85;
+    var show = cta.getBoundingClientRect().bottom < vh * 0.5 && apply.getBoundingClientRect().top > vh * 0.85;
     if (bar.hidden === show) bar.hidden = !show;
   }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -901,12 +906,12 @@ html.sd-lock{overflow:hidden}
 (function () {
   var NOTE = '제휴 시간은 제휴사에서 먼저 제안';
   var SPACES = [
-    { k: 'a', loc: '홍대입구역 도보 1분', area: '13평', cap: '20명', chairs: '18개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 5개 · 4인 2개', outlets: '2구 2개', hours: '화요일 종일', hoursNote: '나머지 요일 09~12시' },
-    { k: 'b', loc: '홍대입구역 도보 5분', area: '37평', cap: '30명', chairs: '30개', parking: '5대', toilet: '내부 전용', food: '가능', tables: '2인 15개', outlets: '2구 6개', hours: '19:00~', hoursNote: NOTE },
-    { k: 'c', loc: '홍대입구역 도보 3분', area: '30평', cap: '50명', chairs: '55개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 7개 · 4인 1개 · 6인 2개 · 9인 2개 · 바 5인 1개 · 바 2인 1개', outlets: '2구 3개', hours: '종일', hoursNote: NOTE },
-    { k: 'd', loc: '홍대입구역 도보 3분', area: '25평', cap: '30명', chairs: '40개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 12개 · 5인(원형) 2개 · 6인 1개', outlets: '2구 4개', hours: '종일', hoursNote: NOTE },
-    { k: 'e', loc: '홍대입구역 도보 1분', area: '25평', cap: '20명', chairs: '26개', parking: '불가', toilet: '건물 내 전용', food: '가능', tables: '2인 2개 · 4인 3개 · 8인 1개 · 바 7인 1개', outlets: '2구 5개', hours: '수·목·금 18~21시', hoursNote: '조건: 1인 1디저트 필수' },
-    { k: 'f', loc: '홍대입구역 도보 1분', area: '25평', cap: '24명', chairs: '24개', sofa: '2인 1개', parking: '불가', toilet: '내부', food: '가능', tables: '2인 9개 · 6인 1개', outlets: '2구 1개', hours: '종일', hoursNote: NOTE }
+    { k: 'a', name: '카페피엠무드', loc: '홍대입구역 도보 1분', area: '13평', cap: '20명', chairs: '18개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 5개 · 4인 2개', outlets: '2구 2개', hours: '화요일 종일', hoursNote: '나머지 요일 09~12시' },
+    { k: 'b', name: '유토카페', loc: '홍대입구역 도보 5분', area: '37평', cap: '30명', chairs: '30개', parking: '5대', toilet: '내부 전용', food: '가능', tables: '2인 15개', outlets: '2구 6개', hours: '19:00~', hoursNote: NOTE },
+    { k: 'c', name: '카페 더누크 스튜디오A', loc: '홍대입구역 도보 3분', area: '30평', cap: '50명', chairs: '55개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 7개 · 4인 1개 · 6인 2개 · 9인 2개 · 바 5인 1개 · 바 2인 1개', outlets: '2구 3개', hours: '종일', hoursNote: NOTE },
+    { k: 'd', name: '카페 더누크 스튜디오B', loc: '홍대입구역 도보 3분', area: '25평', cap: '30명', chairs: '40개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 12개 · 5인(원형) 2개 · 6인 1개', outlets: '2구 4개', hours: '종일', hoursNote: NOTE },
+    { k: 'e', name: '쥬마뺄', loc: '홍대입구역 도보 1분', area: '25평', cap: '20명', chairs: '26개', parking: '불가', toilet: '건물 내 전용', food: '가능', tables: '2인 2개 · 4인 3개 · 8인 1개 · 바 7인 1개', outlets: '2구 5개', hours: '수·목·금 18~21시', hoursNote: '조건: 1인 1디저트 필수' },
+    { k: 'f', name: '카페 더누크 스튜디오C', loc: '홍대입구역 도보 1분', area: '25평', cap: '24명', chairs: '24개', sofa: '2인 1개', parking: '불가', toilet: '내부', food: '가능', tables: '2인 9개 · 6인 1개', outlets: '2구 1개', hours: '종일', hoursNote: NOTE }
   ];
   var dlg = document.getElementById('space-dlg');
   if (!dlg || typeof dlg.showModal !== 'function') return;
@@ -915,7 +920,7 @@ html.sd-lock{overflow:hidden}
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function render(i) {
     cur = (i + SPACES.length) % SPACES.length;
-    var s = SPACES[cur], name = '카페 ' + s.k.toUpperCase();
+    var s = SPACES[cur], name = s.name;
     $('sd-img').src = '/business/assets/pool-cafe-' + s.k + '.jpg';
     $('sd-img').alt = name + ' 내부';
     $('sd-count').textContent = (cur + 1) + ' / ' + SPACES.length;
@@ -955,7 +960,7 @@ html.sd-lock{overflow:hidden}
     if (e.key === 'ArrowLeft') render(cur - 1);
   });
   $('sd-cta').addEventListener('click', function () {
-    var memo = $('f-memo'), name = '카페 ' + SPACES[cur].k.toUpperCase();
+    var memo = $('f-memo'), name = SPACES[cur].name;
     if (memo && !memo.value.trim()) memo.value = '관심 공간: ' + name;
     var more = memo && memo.closest('details');
     if (more) more.open = true;
