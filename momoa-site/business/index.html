@@ -43,7 +43,7 @@ details[open] .mm-sumchev{transform:rotate(180deg)}
 .mb-cond{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .mb-cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
 .mb-why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.mb-pool{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.mb-pool{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
 .mb-steps{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch;gap:14px}
 .mb-fx2{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr)}
 .mb-fx2 .fx-arr{display:flex;align-items:center;justify-content:center}
@@ -67,7 +67,7 @@ p{text-wrap:pretty}
 .mb-cmp,.mb-why{gap:16px}
 .mb-pool{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:clamp(16px,4vw,40px);gap:12px;margin-left:calc(-1 * clamp(16px,4vw,40px));margin-right:calc(-1 * clamp(16px,4vw,40px));padding:0 clamp(16px,4vw,40px) 4px;scrollbar-width:none}
 .mb-pool::-webkit-scrollbar{display:none}
-.mb-pool > figure{flex:0 0 40%;min-width:0;scroll-snap-align:start}
+.mb-pool > .mb-space{flex:0 0 40%;min-width:0;scroll-snap-align:start}
 .mb-steps{grid-template-columns:minmax(0,1fr);gap:10px}
 .mb-steparr{display:none !important}
 }
@@ -100,7 +100,7 @@ p{text-wrap:pretty}
 .mb-condcard .mb-ic svg{width:20px;height:20px}
 .mb-condcard h3{font-size:19px !important}
 .mb-condcard p{font-size:13.5px !important;line-height:1.5 !important}
-.mb-pool > figure{flex:0 0 62%}
+.mb-pool > .mb-space{flex:0 0 62%}
 .mb-steps{gap:0 !important;background:#FFFFFF;border-radius:18px;padding:2px 18px}
 .mb-step{background:transparent !important;border-radius:0 !important;padding:14px 0 !important;border-bottom:1px solid #EEEFF2}
 .mb-step:last-child{border-bottom:0}
@@ -132,6 +132,59 @@ html{scroll-behavior:auto}
 .mb-chip[aria-pressed="true"]{border-color:#2B5CE0;background:#2B5CE0;color:#FFFFFF;font-weight:700}
 .mm-in[aria-invalid="true"]{border-color:#C2410C !important}
 button[type="submit"][disabled]{opacity:.7;cursor:wait}
+.mb-space{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;cursor:pointer;min-width:0;border-radius:18px}
+.mb-space:focus-visible{outline:3px solid #9DB5F5;outline-offset:4px}
+.mb-space-img{position:relative;display:block;border-radius:16px;overflow:hidden}
+.mb-space-img img{display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;transition:transform .35s ease}
+.mb-space:hover .mb-space-img img{transform:scale(1.04)}
+.mb-space-more{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:2px;padding:6px 8px 6px 11px;border-radius:999px;background:rgba(255,255,255,.94);color:#17191E;font-size:13px;font-weight:700;box-shadow:0 4px 12px -4px rgba(0,0,0,.3)}
+.mb-space-cap{display:flex;flex-direction:column;gap:4px}
+.mb-space-cap strong{font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E}
+.mb-space-cap span{font-size:14px;color:#4A4F5A}
+.sd{padding:0;border:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;margin:0;color:#17191E}
+.sd::backdrop{background:rgba(10,12,16,.6)}
+.sd[open]{display:flex;align-items:center;justify-content:center}
+.sd-box{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);width:min(980px,calc(100% - 48px));max-height:calc(100% - 48px);background:#FFFFFF;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.sd-photo{position:relative;background:#E9EBEF;min-height:0}
+.sd-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.sd-body{display:flex;flex-direction:column;min-height:0;max-height:calc(100vh - 48px);overflow:auto}
+.sd-head{padding:28px 28px 0}
+.sd-kicker{margin:0;font-size:13px;font-weight:700;color:#2B5CE0}
+.sd-title{margin:6px 0 0;font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1.25}
+.sd-loc{margin:6px 0 0;font-size:15px;color:#4A4F5A}
+.sd-keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:20px 28px 0}
+.sd-key{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:14px;background:#F2F5FD}
+.sd-key span{font-size:12.5px;font-weight:600;color:#4A4F5A}
+.sd-key strong{font-size:18px;font-weight:800;color:#17191E;font-variant-numeric:tabular-nums}
+.sd-list{margin:16px 28px 0;padding:0;display:grid;grid-template-columns:auto minmax(0,1fr);border-top:2px solid #17191E}
+.sd-list dt,.sd-list dd{margin:0;padding:12px 0;border-bottom:1px solid #E4E6EB;font-size:15px;line-height:1.5}
+.sd-list dt{padding-right:20px;font-weight:700;color:#2B5CE0;white-space:nowrap}
+.sd-list dd{font-weight:600}
+.sd-list dd small{display:block;margin-top:2px;font-size:13px;font-weight:500;color:#5F6672}
+.sd-foot{position:sticky;bottom:0;margin-top:auto;display:flex;gap:8px;align-items:center;padding:16px 28px 24px;background:linear-gradient(rgba(255,255,255,0),#FFFFFF 18px)}
+.sd-cta{flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;padding:0 18px;border:0;border-radius:14px;background:#2B5CE0;color:#FFFFFF;font-size:16px;font-weight:700;cursor:pointer}
+.sd-cta:hover{filter:brightness(1.07)}
+.sd-nav{flex:none;width:52px;height:52px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #D5D9E1;border-radius:14px;background:#FFFFFF;color:#17191E;cursor:pointer}
+.sd-nav:hover{background:#F4F5F7}
+.sd-close{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#17191E;cursor:pointer;box-shadow:0 4px 14px -4px rgba(0,0,0,.35)}
+.sd-count{position:absolute;left:14px;bottom:14px;padding:5px 10px;border-radius:999px;background:rgba(17,19,24,.7);color:#FFFFFF;font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums}
+html.sd-lock{overflow:hidden}
+@media (max-width:760px){
+.sd[open]{align-items:flex-end}
+.sd-box{display:flex;flex-direction:column;width:100%;max-height:calc(100% - 24px);border-radius:22px 22px 0 0;overflow:auto;overscroll-behavior:contain}
+.sd-photo{flex:none;aspect-ratio:4 / 3}
+.sd-body{overflow:visible;max-height:none}
+.sd-head{padding:20px 18px 0}
+.sd-title{font-size:23px}
+.sd-keys{margin:16px 18px 0}
+.sd-key{padding:10px}
+.sd-key strong{font-size:16px}
+.sd-list{margin:14px 18px 0}
+.sd-list dt,.sd-list dd{font-size:14.5px;padding:11px 0}
+.sd-list dt{padding-right:14px}
+.sd-foot{padding:14px 18px calc(14px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){.mb-space-img img{transition:none}}
 </style>
 </head>
 <body>
@@ -454,29 +507,15 @@ button[type="submit"][disabled]{opacity:.7;cursor:wait}
 <p class="mb-lead" style="margin:20px 0 0;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#4A4F5A">새 지역마다 공간을 찾고 계약할 필요 없이, 공간 풀에서 바로 모임을 엽니다.</p>
 <div class="mb-block" style="margin-top:clamp(32px,5vw,56px);display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px">
 <h3 style="margin:0;font-size:18px;font-weight:800;letter-spacing:-0.01em;color:#17191E">현재 공간 풀</h3>
-<span style="font-size:14px;color:#5F6672">홍대입구역 인근 5곳 · 2026. 10. 21 기준</span>
+<span style="font-size:14px;color:#5F6672">홍대입구역 인근 6곳 · 2026. 10. 21 기준 · 사진을 누르면 상세 정보를 볼 수 있어요</span>
 </div>
 <div class="mb-pool" style="margin-top:16px">
-<figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-<img src="/business/assets/pool-cafe-a.jpg" alt="카페 A 내부" style="display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;border-radius:16px">
-<figcaption style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E">카페 A</strong><span style="font-size:14px;color:#4A4F5A">13평 · 최대 20명</span></figcaption>
-</figure>
-<figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-<img src="/business/assets/pool-cafe-b.jpg" alt="카페 B 내부" style="display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;border-radius:16px">
-<figcaption style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E">카페 B</strong><span style="font-size:14px;color:#4A4F5A">37평 · 최대 30명</span></figcaption>
-</figure>
-<figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-<img src="/business/assets/pool-cafe-c.jpg" alt="카페 C 내부" style="display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;border-radius:16px">
-<figcaption style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E">카페 C</strong><span style="font-size:14px;color:#4A4F5A">30평 · 최대 50명</span></figcaption>
-</figure>
-<figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-<img src="/business/assets/pool-cafe-d.jpg" alt="카페 D 내부" style="display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;border-radius:16px">
-<figcaption style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E">카페 D</strong><span style="font-size:14px;color:#4A4F5A">25평 · 최대 30명</span></figcaption>
-</figure>
-<figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-<img src="/business/assets/pool-cafe-e.jpg" alt="카페 E 내부" style="display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;border-radius:16px">
-<figcaption style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:17px;font-weight:800;letter-spacing:-0.01em;color:#17191E">카페 E</strong><span style="font-size:14px;color:#4A4F5A">12평 · 최대 20명</span></figcaption>
-</figure>
+<button type="button" class="mb-space" data-space="a" aria-haspopup="dialog" aria-label="카페 A 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-a.jpg" alt="카페 A 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 A</strong><span>13평 · 최대 20명</span></span></button>
+<button type="button" class="mb-space" data-space="b" aria-haspopup="dialog" aria-label="카페 B 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-b.jpg" alt="카페 B 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 B</strong><span>37평 · 최대 30명</span></span></button>
+<button type="button" class="mb-space" data-space="c" aria-haspopup="dialog" aria-label="카페 C 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-c.jpg" alt="카페 C 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 C</strong><span>30평 · 최대 50명</span></span></button>
+<button type="button" class="mb-space" data-space="d" aria-haspopup="dialog" aria-label="카페 D 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-d.jpg" alt="카페 D 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 D</strong><span>25평 · 최대 30명</span></span></button>
+<button type="button" class="mb-space" data-space="e" aria-haspopup="dialog" aria-label="카페 E 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-e.jpg" alt="카페 E 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 E</strong><span>25평 · 최대 20명</span></span></button>
+<button type="button" class="mb-space" data-space="f" aria-haspopup="dialog" aria-label="카페 F 상세 정보 보기"><span class="mb-space-img"><img src="/business/assets/pool-cafe-f.jpg" alt="카페 F 내부"><span class="mb-space-more" aria-hidden="true">자세히<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span><span class="mb-space-cap"><strong>카페 F</strong><span>25평 · 최대 24명</span></span></button>
 </div>
 <div class="mb-steps mb-block" style="margin-top:clamp(28px,4vw,48px)">
 <div class="mb-step" style="background:#FFFFFF;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:6px">
@@ -825,6 +864,107 @@ button[type="submit"][disabled]{opacity:.7;cursor:wait}
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   onScroll();
+})();
+</script>
+<dialog id="space-dlg" class="sd" aria-labelledby="sd-title">
+<div class="sd-box">
+<button type="button" class="sd-close" data-sd-close aria-label="닫기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+<div class="sd-photo"><img id="sd-img" alt=""><span id="sd-count" class="sd-count"></span></div>
+<div class="sd-body">
+<div class="sd-head">
+<p class="sd-kicker">모모아 공간 풀</p>
+<h3 id="sd-title" class="sd-title"></h3>
+<p id="sd-loc" class="sd-loc"></p>
+</div>
+<div class="sd-keys">
+<div class="sd-key"><span>면적</span><strong id="sd-area"></strong></div>
+<div class="sd-key"><span>최대 인원</span><strong id="sd-cap"></strong></div>
+<div class="sd-key"><span>의자</span><strong id="sd-chairs"></strong></div>
+</div>
+<dl id="sd-list" class="sd-list"></dl>
+<div class="sd-foot">
+<button type="button" class="sd-nav" data-sd-step="-1" aria-label="이전 공간"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<button type="button" class="sd-cta" id="sd-cta">이 공간으로 미팅 요청하기</button>
+<button type="button" class="sd-nav" data-sd-step="1" aria-label="다음 공간"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+</div>
+</dialog>
+<script>
+(function () {
+  var NOTE = '제휴 시간은 제휴사에서 먼저 제안';
+  var SPACES = [
+    { k: 'a', loc: '홍대입구역 도보 1분', area: '13평', cap: '20명', chairs: '18개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 5개 · 4인 2개', outlets: '2구 2개', hours: '화요일 종일', hoursNote: '나머지 요일 09~12시' },
+    { k: 'b', loc: '홍대입구역 도보 5분', area: '37평', cap: '30명', chairs: '30개', parking: '5대', toilet: '내부 전용', food: '가능', tables: '2인 15개', outlets: '2구 6개', hours: '19:00~', hoursNote: NOTE },
+    { k: 'c', loc: '홍대입구역 도보 3분', area: '30평', cap: '50명', chairs: '55개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 7개 · 4인 1개 · 6인 2개 · 9인 2개 · 바 5인 1개 · 바 2인 1개', outlets: '2구 3개', hours: '종일', hoursNote: NOTE },
+    { k: 'd', loc: '홍대입구역 도보 3분', area: '25평', cap: '30명', chairs: '40개', parking: '불가', toilet: '내부 전용', food: '가능', tables: '2인 12개 · 5인(원형) 2개 · 6인 1개', outlets: '2구 4개', hours: '종일', hoursNote: NOTE },
+    { k: 'e', loc: '홍대입구역 도보 1분', area: '25평', cap: '20명', chairs: '26개', parking: '불가', toilet: '건물 내 전용', food: '가능', tables: '2인 2개 · 4인 3개 · 8인 1개 · 바 7인 1개', outlets: '2구 5개', hours: '수·목·금 18~21시', hoursNote: '조건: 1인 1디저트 필수' },
+    { k: 'f', loc: '홍대입구역 도보 1분', area: '25평', cap: '24명', chairs: '24개', sofa: '2인 1개', parking: '불가', toilet: '내부', food: '가능', tables: '2인 9개 · 6인 1개', outlets: '2구 1개', hours: '종일', hoursNote: NOTE }
+  ];
+  var dlg = document.getElementById('space-dlg');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var $ = function (id) { return document.getElementById(id); };
+  var cur = 0, opener = null;
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function render(i) {
+    cur = (i + SPACES.length) % SPACES.length;
+    var s = SPACES[cur], name = '카페 ' + s.k.toUpperCase();
+    $('sd-img').src = '/business/assets/pool-cafe-' + s.k + '.jpg';
+    $('sd-img').alt = name + ' 내부';
+    $('sd-count').textContent = (cur + 1) + ' / ' + SPACES.length;
+    $('sd-title').textContent = name;
+    $('sd-loc').textContent = s.loc;
+    $('sd-area').textContent = s.area;
+    $('sd-cap').textContent = s.cap;
+    $('sd-chairs').textContent = s.chairs;
+    var rows = [['대관 가능 시간', s.hours, s.hoursNote], ['테이블', s.tables], ['의자', s.chairs]];
+    if (s.sofa) rows.push(['소파', s.sofa]);
+    rows.push(['콘센트', s.outlets], ['화장실', s.toilet], ['음식물 반입', s.food], ['주차', s.parking]);
+    $('sd-list').innerHTML = rows.map(function (r) {
+      return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + (r[2] ? '<small>' + esc(r[2]) + '</small>' : '') + '</dd>';
+    }).join('');
+    var body = dlg.querySelector('.sd-body'), box = dlg.querySelector('.sd-box');
+    body.scrollTop = 0; box.scrollTop = 0;
+  }
+  function open(i, btn) {
+    opener = btn || null;
+    render(i);
+    document.documentElement.classList.add('sd-lock');
+    dlg.showModal();
+    dlg.querySelector('.sd-close').focus();
+  }
+  function close() { dlg.close(); }
+  dlg.addEventListener('close', function () {
+    document.documentElement.classList.remove('sd-lock');
+    if (opener) opener.focus({ preventScroll: true });
+  });
+  dlg.addEventListener('click', function (e) {
+    if (e.target === dlg) { close(); return; }
+    if (e.target.closest('[data-sd-close]')) { close(); return; }
+    var step = e.target.closest('[data-sd-step]');
+    if (step) render(cur + Number(step.getAttribute('data-sd-step')));
+  });
+  dlg.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') render(cur + 1);
+    if (e.key === 'ArrowLeft') render(cur - 1);
+  });
+  $('sd-cta').addEventListener('click', function () {
+    var memo = $('f-memo'), name = '카페 ' + SPACES[cur].k.toUpperCase();
+    if (memo && !memo.value.trim()) memo.value = '관심 공간: ' + name;
+    var more = memo && memo.closest('details');
+    if (more) more.open = true;
+    opener = null;
+    close();
+    var target = $('apply');
+    if (target) target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    setTimeout(function () { var f = $('f-co'); if (f) f.focus({ preventScroll: true }); }, 500);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.mb-space'), function (btn) {
+    btn.addEventListener('click', function () {
+      var k = btn.getAttribute('data-space');
+      for (var i = 0; i < SPACES.length; i++) if (SPACES[i].k === k) return open(i, btn);
+    });
+  });
 })();
 </script>
 </body>
